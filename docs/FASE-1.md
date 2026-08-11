@@ -28,12 +28,14 @@ Dejar lista la base técnica del sitio Ferresa sin construir todavía la UI comp
 - Utilidad `generateWhatsAppLink()`
 - Rutas placeholder para todas las páginas planificadas
 
-## Cómo verificar
+## Verificación realizada
 
-```bash
-npm install
-npm run dev
-npm run build
-```
+- `npm install` OK
+- `npm run build` OK
+- `npm run lint` (tsc) OK
+- Dev server en `http://127.0.0.1:5173/` → HTTP 200
+- Git inicializado (MinGit portable) con commit `feat: create project structure`
 
-Abrir la URL local, navegar rutas y probar el enlace de WhatsApp.
+## Nota Git
+
+En este equipo no había Git en el PATH. Se usó MinGit portable en `%USERPROFILE%\tools\mingit` para inicializar el repositorio. Se recomienda instalar [Git for Windows](https://git-scm.com/download/win) y añadirlo al PATH para el flujo diario.
