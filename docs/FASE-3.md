@@ -82,4 +82,47 @@ Lista completa del cliente guardada en `categoryCatalog` para `/servicios` (no s
 
 ### Fuera de alcance 3.2
 
-Proyectos destacados, servicios completos, nosotros, proceso, diferenciadores, testimonios, formulario, blog, Instagram, materiales.
+Proyectos destacados (3.3), servicios completos, nosotros, proceso, diferenciadores, testimonios, formulario, blog, Instagram, materiales.
+
+---
+
+## FASE 3.3 — Proyectos destacados
+
+**Fecha:** 2026-08-11  
+**Estado:** Completada
+
+### Objetivo
+
+Mostrar proyectos reales en Home para generar confianza y conversión, sin inventar contenido.
+
+### Datos
+
+- Fuente: `src/data/projects.ts` (`projects` + `getFeaturedProjects(limit)`).
+- Criterio Home: `published && featured`, máximo `homeContent.featuredProjects.limit` (3).
+- Array actual: **vacío** (sin proyectos ficticios).
+
+### Estado vacío
+
+- Mensaje discreto: “Estamos preparando nuestro portafolio de proyectos.”
+- CTA: “Conoce nuestro trabajo” → `/contacto`
+- Espacio visual reservado (bloque dashed), sin cards inventadas.
+
+### Con proyectos reales
+
+- Layout editorial: 1 destacado + hasta 2 secundarios.
+- `ProjectCard` reutilizado (`variant`, descripción opcional, lazy images).
+- CTA: “Ver todos los proyectos” → `/proyectos`
+- Enlace por card: `/proyectos/:slug`
+
+### Copy (centralizado)
+
+`homeContent.featuredProjects` en `src/data/home.ts` (provisional).
+
+### Pendiente del cliente
+
+- Cargar proyectos reales con `published: true`, `featured: true` e imágenes en `public/images/projects`.
+- Validar copy introductorio.
+
+### Fuera de alcance 3.3
+
+Detalle completo, filtros, CMS, backend, resto de secciones Home (3.4+).

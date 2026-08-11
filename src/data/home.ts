@@ -57,4 +57,23 @@ export const homeContent = {
       to: '/proyectos',
     },
   },
+  featuredProjects: {
+    eyebrow: 'Proyectos',
+    title: 'Proyectos que hablan por nosotros',
+    /**
+     * Copy provisional — editable desde datos.
+     */
+    provisional: true,
+    description: 'Conoce algunos de los proyectos desarrollados por Ferresa.',
+    emptyMessage: 'Estamos preparando nuestro portafolio de proyectos.',
+    emptyCta: {
+      label: 'Conoce nuestro trabajo',
+      to: '/contacto',
+    },
+    cta: {
+      label: 'Ver todos los proyectos',
+      to: '/proyectos',
+    },
+    limit: 3,
+  },
 } as const
