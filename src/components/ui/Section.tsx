@@ -24,6 +24,7 @@ type SectionProps = {
   padding?: SectionPadding
   as?: ElementType
   contained?: boolean
+  'aria-labelledby'?: string
 }
 
 export function Section({
@@ -34,9 +35,14 @@ export function Section({
   padding = 'lg',
   as: Tag = 'section',
   contained = true,
+  'aria-labelledby': ariaLabelledBy,
 }: SectionProps) {
   return (
-    <Tag id={id} className={cn(toneClasses[tone], paddingClasses[padding], className)}>
+    <Tag
+      id={id}
+      aria-labelledby={ariaLabelledBy}
+      className={cn(toneClasses[tone], paddingClasses[padding], className)}
+    >
       {contained ? <Container>{children}</Container> : children}
     </Tag>
   )
