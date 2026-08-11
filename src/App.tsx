@@ -4,6 +4,7 @@ import {
   AboutPage,
   ContactPage,
   HomePage,
+  NotFoundPage,
   ProjectDetailPage,
   ProjectsPage,
   ServicesPage,
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="servicios" element={<ServicesPage />} />
           <Route path="nosotros" element={<AboutPage />} />
           <Route path="contacto" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

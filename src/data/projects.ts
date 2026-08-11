@@ -20,3 +20,11 @@ export function getFeaturedProjects(limit = 3): Project[] {
     .filter((project) => project.published && project.featured)
     .slice(0, limit)
 }
+
+export function getPublishedProjects(): Project[] {
+  return projects.filter((project) => project.published)
+}
+
+export function getProjectBySlug(slug: string): Project | undefined {
+  return projects.find((project) => project.slug === slug && project.published)
+}
