@@ -145,4 +145,33 @@ export const homeContent = {
     description:
       'Un enfoque claro: personalización, fabricación a medida y acompañamiento en cada etapa.',
   },
+  testimonials: {
+    eyebrow: 'Testimonios',
+    title: 'Lo que dicen nuestros clientes',
+    description:
+      'Cuando existan testimonios confirmados, aparecerán aquí.',
+    emptyMessage: 'Pronto compartiremos testimonios reales de proyectos Ferresa.',
+  },
+  faq: {
+    eyebrow: 'Preguntas frecuentes',
+    title: 'Resolvemos tus dudas',
+    description:
+      'Respuestas confirmadas se publicarán aquí. Mientras tanto, escríbenos y te orientamos.',
+    emptyMessage:
+      'Estamos preparando las preguntas frecuentes con información confirmada.',
+  },
+  finalCta: {
+    title: '¿Tienes un proyecto en mente?',
+    description:
+      'Cuéntanos qué necesitas. En Ferresa te acompañamos desde la idea hasta la instalación.',
+    primaryCta: {
+      label: 'Cuéntanos tu proyecto',
+      to: '/contacto',
+    },
+    whatsappCta: {
+      label: 'Escríbenos por WhatsApp',
+      message:
+        'Hola Ferresa, estoy interesado en realizar un proyecto de mobiliario. Me gustaría recibir información y una cotización.',
+    },
+  },
 } as const

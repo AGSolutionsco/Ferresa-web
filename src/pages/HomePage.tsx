@@ -5,11 +5,19 @@ import { FeaturedProjects } from '@/sections/FeaturedProjects'
 import { AboutPreview } from '@/sections/AboutPreview'
 import { ProcessSteps } from '@/sections/ProcessSteps'
 import { Differentiators } from '@/sections/Differentiators'
+import { Testimonials } from '@/sections/Testimonials'
+import { FaqSection } from '@/sections/FaqSection'
+import { FinalCta } from '@/sections/FinalCta'
+import { pageSeo } from '@/data/seo'
+import { usePageSeo } from '@/hooks/usePageSeo'
 
 /**
- * Home — FASE 3.1 · 3.2 · 3.3 · 3.4 · 3.5 · 3.6
+ * Home completa — FASE 3.1 → 3.8
+ * Testimonios/FAQ solo se renderizan si hay contenido publicado.
  */
 export function HomePage() {
+  usePageSeo(pageSeo.home.title, pageSeo.home.description)
+
   return (
     <>
       <Hero />
@@ -19,6 +27,9 @@ export function HomePage() {
       <AboutPreview />
       <ProcessSteps />
       <Differentiators />
+      <Testimonials />
+      <FaqSection />
+      <FinalCta />
     </>
   )
 }

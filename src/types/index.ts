@@ -145,4 +145,20 @@ export interface Testimonial {
   city?: string
   quote: string
   projectTitle?: string
+  imageSrc?: string | null
+  /** Solo mostrar en UI si true */
+  published: boolean
+}
+
+export interface FaqItem {
+  id: string
+  question: string
+  answer: string
+  /** Solo mostrar en UI si true */
+  published: boolean
+}
+
+export interface PageSeo {
+  title: string
+  description: string
 }
