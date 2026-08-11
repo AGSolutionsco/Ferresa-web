@@ -135,4 +135,14 @@ export const homeContent = {
         'Hola Ferresa, quiero hablar sobre un proyecto de mobiliario.',
     },
   },
+  differentiators: {
+    eyebrow: '¿Por qué Ferresa?',
+    title: 'Diseñamos pensando en tu espacio',
+    /**
+     * Copy provisional — ítems en src/data/differentiators.ts
+     */
+    provisional: true,
+    description:
+      'Un enfoque claro: personalización, fabricación a medida y acompañamiento en cada etapa.',
+  },
 } as const

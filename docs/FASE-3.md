@@ -217,4 +217,47 @@ Validación final de copy de cada paso.
 
 ### Fuera de alcance 3.5
 
-Diferenciadores, materiales, testimonios, FAQ, formulario, Instagram, blog, SEO avanzado.
+Diferenciadores (3.6), materiales, testimonios, FAQ, formulario, Instagram, blog, SEO avanzado.
+
+---
+
+## FASE 3.6 — Diferenciadores
+
+**Fecha:** 2026-08-11  
+**Estado:** Completada
+
+### Objetivo
+
+Sección breve “¿Por qué Ferresa?” para reforzar personalización, servicio integral y adaptación al espacio.
+
+### Diferenciadores (provisionales, cliente)
+
+1. Diseño personalizado  
+2. Fabricación a medida  
+3. Servicio integral  
+4. Aprovechamiento del espacio  
+5. Atención personalizada  
+6. Soluciones residenciales y comerciales  
+
+Fuente: `src/data/differentiators.ts`. Orden Home: `homeDifferentiatorIds`. Copy: `homeContent.differentiators`.
+
+### UX
+
+- Tipografía + numeración 01–06; sin iconos ni imágenes.
+- Grid: 1 col móvil · 2 tablet · 3 desktop.
+- Sin CTA extra (evita duplicar el del proceso).
+- Sin afirmaciones no confirmadas (garantías, precios, certificaciones, etc.).
+
+### Archivos
+
+- `src/data/differentiators.ts`
+- `src/data/home.ts` → `differentiators`
+- `src/sections/Differentiators.tsx`
+
+### Pendiente del cliente
+
+Validación final del copy de cada diferenciador.
+
+### Fuera de alcance 3.6
+
+Materiales, testimonios, FAQ, formulario, Instagram, blog, contacto completo, SEO avanzado.

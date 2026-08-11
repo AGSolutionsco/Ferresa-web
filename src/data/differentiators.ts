@@ -1,37 +1,51 @@
 import type { Differentiator } from '@/types'
 
 /**
- * Beneficios respaldables — sin afirmaciones exageradas.
+ * Diferenciadores Ferresa.
+ * Contenido provisional proporcionado por el cliente — pendiente de validación final.
+ * No agregar beneficios no confirmados (garantías, precios, certificaciones, etc.).
  */
 export const differentiators: Differentiator[] = [
   {
     id: 'diseno-personalizado',
     title: 'Diseño personalizado',
-    description: 'Cada proyecto se diseña según el espacio y las necesidades del cliente.',
+    description:
+      'Cada proyecto se adapta a las necesidades y dimensiones del cliente.',
   },
   {
     id: 'fabricacion-a-medida',
     title: 'Fabricación a medida',
-    description: 'Fabricamos mobiliario adaptado a las medidas y el uso real del ambiente.',
+    description: 'Creamos soluciones que se ajustan al espacio disponible.',
   },
   {
     id: 'servicio-integral',
     title: 'Servicio integral',
-    description: 'Acompañamos el proceso desde el diseño hasta la instalación.',
+    description: 'Diseñamos, fabricamos e instalamos.',
   },
   {
     id: 'aprovechamiento-espacio',
     title: 'Aprovechamiento del espacio',
-    description: 'Buscamos soluciones que optimicen el uso de cada área.',
+    description: 'Buscamos que cada metro cuadrado tenga una función.',
   },
   {
     id: 'atencion-personalizada',
     title: 'Atención personalizada',
-    description: 'Comunicación directa para entender y acompañar tu proyecto.',
+    description:
+      'Acompañamos al cliente durante el desarrollo del proyecto.',
   },
   {
     id: 'residencial-comercial',
     title: 'Soluciones residenciales y comerciales',
-    description: 'Trabajamos para hogares, oficinas y espacios comerciales.',
+    description: 'Atendemos hogares y negocios.',
   },
 ]
+
+/** Prioridad visual en Home (orden de aparición). */
+export const homeDifferentiatorIds = [
+  'diseno-personalizado',
+  'fabricacion-a-medida',
+  'servicio-integral',
+  'aprovechamiento-espacio',
+  'atencion-personalizada',
+  'residencial-comercial',
+] as const
