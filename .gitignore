@@ -34,5 +34,8 @@ dist-ssr
 # OS
 Thumbs.db
 
+# Cursor / IDE local
+.cursor/
+
 # TypeScript
 *.tsbuildinfo
