@@ -126,3 +126,46 @@ Mostrar proyectos reales en Home para generar confianza y conversión, sin inven
 ### Fuera de alcance 3.3
 
 Detalle completo, filtros, CMS, backend, resto de secciones Home (3.4+).
+
+---
+
+## FASE 3.4 — Sobre Ferresa
+
+**Fecha:** 2026-08-11  
+**Estado:** Completada
+
+### Objetivo
+
+Sección breve de confianza en Home: quién es Ferresa, qué hace, dónde opera y enfoque (diseño / fabricación / instalación).
+
+### Contenido
+
+| Elemento | Origen | Estado |
+|----------|--------|--------|
+| 3 párrafos | Copy cliente (2024, Medellín, diseño-fabricación-instalación) | Provisional |
+| Título | “Diseñamos espacios pensados para ti” | Provisional |
+| Highlights | `foundedYear`, Medellín, “Residencial y comercial” (desde descripción confirmada) | Confirmado / derivado |
+| Barranquilla | `company.plannedExpansion` → “Próxima expansión: Barranquilla” | Proyectada (no operación actual) |
+| Imagen | `about.imageSrc = null` | Placeholder desarrollo |
+
+### UX
+
+- Layout editorial: texto → imagen (móvil); imagen izquierda + texto derecha (desktop) + highlights/CTA.
+- CTA único: “Conoce más sobre Ferresa” → `/nosotros`
+- Sin estadísticas inventadas.
+
+### Archivos
+
+- `src/data/home.ts` → `about`
+- `src/sections/AboutPreview.tsx`
+- `src/pages/HomePage.tsx`
+
+### Pendiente del cliente
+
+- Fotografía real para la sección.
+- Validación definitiva del copy provisional.
+- Confirmación de wording de expansión Barranquilla.
+
+### Fuera de alcance 3.4
+
+Proceso, diferenciadores, materiales, testimonios, formulario, Instagram, blog, landing Barranquilla.

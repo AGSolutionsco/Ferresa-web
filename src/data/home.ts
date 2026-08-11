@@ -76,4 +76,44 @@ export const homeContent = {
     },
     limit: 3,
   },
+  about: {
+    eyebrow: 'Sobre Ferresa',
+    title: 'Diseñamos espacios pensados para ti',
+    /**
+     * Párrafos provisionales proporcionados por el cliente.
+     */
+    provisional: true,
+    paragraphs: [
+      'Ferresa nace en 2024 con el propósito de transformar espacios a través del diseño y la fabricación de mobiliario personalizado.',
+      'Desde Medellín, desarrollamos soluciones pensadas para aprovechar cada espacio, combinando funcionalidad, diseño y calidad.',
+      'Nuestro trabajo integra diferentes etapas del proyecto: diseño, fabricación e instalación, ofreciendo a nuestros clientes una experiencia completa y personalizada.',
+    ],
+    /**
+     * Datos disponibles en company — solo confirmados/provisionales ya tipados.
+     */
+    highlights: [
+      {
+        label: 'Año de fundación',
+        value: String(company.foundedYear),
+      },
+      {
+        label: 'Ciudad principal',
+        value: company.primaryLocation.city,
+      },
+      {
+        label: 'Ámbitos de trabajo',
+        value: 'Residencial y comercial',
+      },
+    ],
+    expansionNote: company.plannedExpansion
+      ? `Próxima expansión: ${company.plannedExpansion.city}`
+      : null,
+    imageSrc: null as string | null,
+    imageAlt:
+      'Sobre Ferresa — fotografía de taller o proyecto pendiente de carga',
+    cta: {
+      label: 'Conoce más sobre Ferresa',
+      to: '/nosotros',
+    },
+  },
 } as const
