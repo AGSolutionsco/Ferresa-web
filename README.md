@@ -45,26 +45,23 @@ public/images/  # Fotografías reales
 
 | Ruta | Estado |
 |------|--------|
-| `/` | Placeholder FASE 1 |
-| `/proyectos` | Placeholder → FASE 4 |
-| `/proyectos/:slug` | Placeholder → FASE 4 |
-| `/servicios` | Placeholder → FASE 5 |
-| `/nosotros` | Placeholder → FASE 5 |
-| `/contacto` | Placeholder → FASE 6 |
+| `/` | Home completa (FASE 3) |
+| `/proyectos` | Listado + empty state |
+| `/proyectos/:slug` | Detalle / 404 |
+| `/servicios` | Catálogo de soluciones |
+| `/nosotros` | Empresa |
+| `/contacto` | Formulario → WhatsApp |
+| `*` | 404 |
+
+Documentación: `docs/FASE-3.md`, `docs/FASE-4.md`.
 
 ## Fases
 
-1. Configuración y arquitectura ← **actual**
-2. Sistema visual + Header + Footer
-3. Home completa
-4. Proyectos
-5. Servicios + Nosotros + Proceso + Diferenciadores
-6. Contacto + Cotización + WhatsApp
-7. Responsive + a11y + performance
-8. SEO técnico
-9. QA
-10. Deploy
-11. Verificación en producción
+1. Configuración y arquitectura — hecha  
+2. Sistema visual + Header + Footer — hecha  
+3. Home completa (3.1–3.8) — hecha  
+4. Páginas internas — hecha  
+5+ Responsive/a11y/SEO avanzado, QA, deploy — pendientes
 
 ## Reglas de contenido
 
