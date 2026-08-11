@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+/*
+  Tokens visuales base — el sistema de diseño completo llega en FASE 2.
+  Evitamos temas genéricos (púrpura / cream / broadsheet).
+*/
+:root {
+  color-scheme: light;
+  --ferresa-bg: #f7f6f4;
+  --ferresa-ink: #1a1a1a;
+  --ferresa-muted: #5c5c5c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--ferresa-bg);
+  color: var(--ferresa-ink);
+  font-family:
+    'Segoe UI',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100dvh;
+}
