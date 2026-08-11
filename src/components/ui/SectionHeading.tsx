@@ -8,6 +8,7 @@ type SectionHeadingProps = {
   align?: 'left' | 'center'
   className?: string
   titleAs?: 'h1' | 'h2' | 'h3'
+  titleId?: string
   tone?: 'light' | 'dark'
 }
 
@@ -18,6 +19,7 @@ export function SectionHeading({
   align = 'left',
   className,
   titleAs: TitleTag = 'h2',
+  titleId,
   tone = 'light',
 }: SectionHeadingProps) {
   const isDark = tone === 'dark'
@@ -41,6 +43,7 @@ export function SectionHeading({
         </p>
       ) : null}
       <TitleTag
+        id={titleId}
         className={cn(
           TitleTag === 'h1' ? 'text-h1' : TitleTag === 'h3' ? 'text-h3' : 'text-h2',
           isDark && 'text-ferresa-inverse',

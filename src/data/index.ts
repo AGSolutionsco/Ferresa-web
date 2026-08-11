@@ -1,5 +1,5 @@
 export { company } from './company'
-export { categories } from './categories'
+export { categories, portfolioCategories, categoryCatalog } from './categories'
 export { projects } from './projects'
 export { services } from './services'
 export { processSteps } from './process'

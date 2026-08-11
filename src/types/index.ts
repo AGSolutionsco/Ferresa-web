@@ -17,6 +17,26 @@ export interface ProjectCategory {
   description?: string
 }
 
+/**
+ * Categoría principal del portafolio (Home / navegación comercial).
+ * Distinta de ProjectCategory (taxonomía fina de proyectos individuales).
+ */
+export interface PortfolioCategory {
+  id: string
+  name: string
+  slug: string
+  /** Resumen breve de tipologías — solo con items confirmados */
+  summary?: string
+  description?: string
+  /** Ruta en /public; null/undefined = placeholder de desarrollo */
+  imageSrc?: string | null
+  imageAlt?: string
+  href: string
+  /** Destaca en layout editorial de Home */
+  featured?: boolean
+}
+
+
 export interface Project {
   id: string
   slug: string

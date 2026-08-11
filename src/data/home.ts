@@ -43,4 +43,18 @@ export const homeContent = {
       to: '/contacto',
     },
   },
+  portfolio: {
+    eyebrow: 'Nuestro portafolio',
+    title: 'Soluciones para cada espacio',
+    /**
+     * Copy provisional — editable desde datos.
+     */
+    provisional: true,
+    description:
+      'Desarrollamos mobiliario pensado para adaptarse a las necesidades, dimensiones y estilo de cada proyecto.',
+    cta: {
+      label: 'Ver todos los proyectos',
+      to: '/proyectos',
+    },
+  },
 } as const

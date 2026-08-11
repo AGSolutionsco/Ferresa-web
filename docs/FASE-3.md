@@ -24,35 +24,62 @@ Comunicar en los primeros segundos qué hace Ferresa y habilitar conversión a c
 - CTA: `Cuéntanos tu proyecto` → `/contacto`
 - Enlace discreto a WhatsApp (sin saturar CTAs).
 
-### Archivos
+### Verificación 3.1
+
+- `npm run lint` OK · `npm run build` OK
+
+---
+
+## FASE 3.2 — Portafolio y categorías
+
+**Fecha:** 2026-08-11  
+**Estado:** Completada
+
+### Objetivo
+
+Mostrar tipos de solución de Ferresa como puente Hero → portafolio → proyectos/cotizar, sin formato e-commerce.
+
+### Categorías en Home
+
+| Categoría | Resumen (confirmado, abreviado) | Enlace |
+|-----------|----------------------------------|--------|
+| Hogar (featured) | Cocinas · Closets · Salas · Vestidores | `/proyectos` |
+| Oficinas | Escritorios · Recepciones · Corporativo | `/proyectos` |
+| Comercial | Locales · Exhibidores · Estanterías | `/proyectos` |
+| Proyectos personalizados | A medida según espacio y necesidad | `/servicios` |
+
+Lista completa del cliente guardada en `categoryCatalog` para `/servicios` (no se muestra ítem a ítem en Home).
+
+### UX / diseño
+
+- Layout editorial: card grande (Hogar) + columna de 3 secundarias.
+- Tablet: featured full + grid 2 cols; Mobile: stack.
+- Hover: zoom sutil de imagen + flecha; respeta `prefers-reduced-motion`.
+- CTA sección: `Ver todos los proyectos` → `/proyectos`.
+- Copy de sección en `homeContent.portfolio` (provisional).
+
+### Imágenes
+
+- Sin fotografías reales en `public/images`.
+- Placeholders de desarrollo claramente identificados.
+- Sustituir con `portfolioCategories[].imageSrc`.
+
+### Componentes / datos
 
 | Archivo | Rol |
 |---------|-----|
-| `src/data/home.ts` | Contenido centralizado Home |
-| `src/sections/Hero.tsx` | Hero + HeroContent + HeroMedia |
-| `src/sections/ValueProposition.tsx` | Bloque de valor + micro-CTA |
-| `src/pages/HomePage.tsx` | Solo 3.1 |
-| `src/index.css` | Animación `reveal-up` + reduced motion |
+| `src/types` → `PortfolioCategory` | Tipo de categoría de portafolio |
+| `src/data/categories.ts` | `portfolioCategories` + `categoryCatalog` + taxonomía `categories` |
+| `src/data/home.ts` | Copy `portfolio` |
+| `src/components/cards/CategoryCard.tsx` | Card con imagen + nombre + summary + Explorar |
+| `src/sections/PortfolioCategories.tsx` | Sección Home |
 
-### Accesibilidad / performance
+### Pendiente del cliente
 
-- Un solo H1; H2 en value proposition.
-- `aria-labelledby` en secciones.
-- Placeholder con `role="img"` + alt/aria-label.
-- Hero image `loading="eager"` + `fetchPriority="high"` cuando exista `imageSrc`.
-- Animación sutil respetando `prefers-reduced-motion`.
+- Fotografías reales por categoría.
+- Confirmar si Oficinas/Comercial deben ir a `/servicios` en lugar de `/proyectos`.
+- Validar summaries y copy provisional.
 
-### Verificación
+### Fuera de alcance 3.2
 
-- `npm run lint` OK
-- `npm run build` OK
-
-### Pendiente para fases siguientes
-
-- 3.2+: proyectos destacados, servicios, proceso, etc.
-- Sustituir placeholder por fotografía real de Ferresa.
-- Revisar copy provisional de value proposition con el cliente.
-
-### Fuera de alcance 3.1
-
-Catálogo, servicios completos, testimonios, formulario, materiales, Instagram feed.
+Proyectos destacados, servicios completos, nosotros, proceso, diferenciadores, testimonios, formulario, blog, Instagram, materiales.
