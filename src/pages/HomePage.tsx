@@ -1,75 +1,109 @@
-import { Link } from 'react-router-dom'
 import { company } from '@/data/company'
-import { mainNavigation } from '@/data/navigation'
-import { generateWhatsAppLink } from '@/utils/whatsapp'
+import { Button } from '@/components/ui/Button'
+import { Container } from '@/components/ui/Container'
+import { Badge } from '@/components/ui/Badge'
+import { DevImagePlaceholder } from '@/components/ui/Image'
+import { Section } from '@/components/ui/Section'
+import { SectionHeading } from '@/components/ui/SectionHeading'
+import { ProjectCard } from '@/components/cards/ProjectCard'
+import { ServiceCard } from '@/components/cards/ServiceCard'
+import { CategoryCard } from '@/components/cards/CategoryCard'
+import { categories } from '@/data/categories'
+import { services } from '@/data/services'
+import { projects } from '@/data/projects'
 
 /**
- * Página de arranque FASE 1 — confirma stack y arquitectura.
- * La Home completa se construye en la FASE 3.
+ * Estructura visual base de Home — FASE 2.
+ * La Home completa (contenido y secciones definitivas) se construye en FASE 3.
  */
 export function HomePage() {
-  const whatsappHref = generateWhatsAppLink()
+  const previewServices = services.slice(0, 3)
+  const previewCategories = categories.slice(0, 4)
+  const publishedProjects = projects.filter((project) => project.published)
 
   return (
-    <div className="mx-auto flex min-h-dvh max-w-3xl flex-col justify-center gap-8 px-6 py-16">
-      <header className="space-y-3">
-        <p className="text-sm font-medium tracking-wide text-neutral-500 uppercase">
-          AG Solutions · FASE 1
-        </p>
-        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-          {company.name}
-        </h1>
-        <p className="text-lg text-neutral-600">{company.tagline}</p>
-        <p className="text-neutral-600">{company.description}</p>
-        <p className="text-sm text-neutral-500">
-          {company.primaryLocation.city}, {company.primaryLocation.country}
-        </p>
-      </header>
+    <>
+      <section className="border-b border-ferresa-line">
+        <Container className="grid gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:py-20">
+          <div className="space-y-6">
+            <Badge tone="accent">Medellín, Colombia</Badge>
+            <h1 className="text-display max-w-xl">{company.tagline}</h1>
+            <p className="max-w-lg text-body text-ferresa-muted">
+              {company.description}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button to="/contacto" variant="primary">
+                Cotizar mi proyecto
+              </Button>
+              <Button to="/proyectos" variant="secondary">
+                Ver nuestros proyectos
+              </Button>
+            </div>
+          </div>
 
-      <section aria-labelledby="nav-fase1" className="space-y-3">
-        <h2 id="nav-fase1" className="text-sm font-medium text-neutral-500">
-          Rutas preparadas
-        </h2>
-        <ul className="flex flex-wrap gap-3">
-          {mainNavigation.map((item) => (
-            <li key={item.href}>
-              <Link
-                to={item.href}
-                className="inline-flex rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-800 transition hover:border-neutral-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-800"
-              >
-                {item.label}
-              </Link>
-            </li>
+          <DevImagePlaceholder
+            label="Fotografía de proyecto pendiente"
+            aspect="wide"
+            className="min-h-72 w-full lg:min-h-[28rem]"
+          />
+        </Container>
+      </section>
+
+      <Section tone="light" padding="lg">
+        <SectionHeading
+          eyebrow="Sistema visual"
+          title="Base lista para las siguientes fases"
+          description="Header, tipografía, componentes y conversión WhatsApp ya están integrados. El contenido completo de la Home llega en la FASE 3."
+        />
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {previewCategories.map((category) => (
+            <CategoryCard key={category.id} category={category} />
           ))}
-        </ul>
-      </section>
+        </div>
+      </Section>
 
-      <section className="space-y-2">
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
-        >
-          Probar enlace WhatsApp
-        </a>
-        <p className="text-sm text-neutral-500">
-          Instagram:{' '}
-          <a
-            href={company.social.instagram.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-2 hover:text-neutral-800"
-          >
-            {company.social.instagram.handle}
-          </a>
-        </p>
-      </section>
+      <Section tone="muted" padding="lg">
+        <SectionHeading
+          eyebrow="Servicios"
+          title="Diseño, fabricación e instalación"
+          description="Vista previa de tarjetas de servicio. El bloque definitivo se desarrolla en FASE 5."
+        />
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {previewServices.map((service, index) => (
+            <ServiceCard key={service.id} service={service} index={index} />
+          ))}
+        </div>
+      </Section>
 
-      <p className="text-sm text-neutral-400">
-        Stack listo: React · Vite · TypeScript · Tailwind · React Router.
-        Esperando FASE 2 (sistema visual + Header + Footer).
-      </p>
-    </div>
+      <Section tone="light" padding="lg">
+        <SectionHeading
+          eyebrow="Proyectos"
+          title="Catálogo preparado"
+          description={
+            publishedProjects.length === 0
+              ? 'Aún no hay proyectos confirmados en los datos. Las tarjetas se activarán cuando AG Solutions cargue proyectos reales.'
+              : 'Proyectos destacados desde src/data.'
+          }
+        />
+
+        {publishedProjects.length > 0 ? (
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {publishedProjects.slice(0, 3).map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-10 border border-dashed border-ferresa-line bg-ferresa-surface px-6 py-10">
+            <p className="text-small font-medium tracking-[0.12em] text-ferresa-muted uppercase">
+              Contenido pendiente de configuración
+            </p>
+            <p className="mt-3 max-w-xl text-body text-ferresa-muted">
+              ProjectCard está listo. No se muestran proyectos inventados.
+            </p>
+          </div>
+        )}
+      </Section>
+    </>
   )
 }

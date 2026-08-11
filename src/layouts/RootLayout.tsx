@@ -1,21 +1,29 @@
 import { Outlet } from 'react-router-dom'
+import { Footer } from '@/components/layout/Footer'
+import { Header } from '@/components/layout/Header'
+import { WhatsAppButton } from '@/components/layout/WhatsAppButton'
 
 /**
- * Layout raíz.
- * Header / Footer se implementarán en la FASE 2.
+ * Layout raíz con sistema visual FASE 2.
  */
 export function RootLayout() {
   return (
-    <div className="min-h-dvh bg-neutral-50 text-neutral-900">
+    <div className="flex min-h-dvh flex-col bg-ferresa-canvas text-ferresa-ink">
       <a
         href="#contenido-principal"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:shadow"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-[var(--radius-md)] focus:bg-ferresa-surface focus:px-3 focus:py-2 focus:shadow-soft"
       >
         Saltar al contenido
       </a>
-      <main id="contenido-principal">
+
+      <Header />
+
+      <main id="contenido-principal" className="flex-1">
         <Outlet />
       </main>
+
+      <Footer />
+      <WhatsAppButton />
     </div>
   )
 }
