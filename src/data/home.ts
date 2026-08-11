@@ -116,4 +116,23 @@ export const homeContent = {
       to: '/nosotros',
     },
   },
+  process: {
+    eyebrow: 'Nuestro proceso',
+    title: 'De la idea a la instalación',
+    /**
+     * Copy provisional — pasos en src/data/process.ts
+     */
+    provisional: true,
+    description:
+      'Así acompañamos cada proyecto: desde la primera conversación hasta la instalación.',
+    primaryCta: {
+      label: 'Cuéntanos tu proyecto',
+      to: '/contacto',
+    },
+    whatsappCta: {
+      label: 'Escríbenos por WhatsApp',
+      message:
+        'Hola Ferresa, quiero hablar sobre un proyecto de mobiliario.',
+    },
+  },
 } as const

@@ -168,4 +168,53 @@ Sección breve de confianza en Home: quién es Ferresa, qué hace, dónde opera 
 
 ### Fuera de alcance 3.4
 
-Proceso, diferenciadores, materiales, testimonios, formulario, Instagram, blog, landing Barranquilla.
+Proceso (3.5), diferenciadores, materiales, testimonios, formulario, Instagram, blog, landing Barranquilla.
+
+---
+
+## FASE 3.5 — Proceso de trabajo
+
+**Fecha:** 2026-08-11  
+**Estado:** Completada
+
+### Objetivo
+
+Explicar visualmente qué ocurre tras contactar a Ferresa: de la idea a la instalación.
+
+### Pasos (provisionales, cliente)
+
+| # | Título | Descripción |
+|---|--------|-------------|
+| 01 | Cuéntanos tu idea | El cliente se comunica… |
+| 02 | Analizamos el espacio | Dimensiones, necesidades, estilo y presupuesto |
+| 03 | Diseñamos | Propuesta personalizada |
+| 04 | Fabricamos | Según especificaciones aprobadas |
+| 05 | Instalamos | Instalación y entrega |
+
+Fuente: `src/data/process.ts`. Copy de sección: `homeContent.process`.
+
+### UX / responsive
+
+- Mobile: timeline vertical numerada (todo visible, sin carrusel).
+- Tablet: 2 columnas.
+- Desktop: 5 columnas; números display; línea decorativa `aria-hidden`.
+- CTA: “Cuéntanos tu proyecto” → `/contacto`
+- WhatsApp contextual vía `generateWhatsAppLink()` (mensaje en datos).
+
+### No incluido (sin confirmación)
+
+Pagos, anticipos, contratos, tiempos, visitas, renders, garantías.
+
+### Archivos
+
+- `src/data/process.ts`
+- `src/data/home.ts` → `process`
+- `src/sections/ProcessSteps.tsx`
+
+### Pendiente del cliente
+
+Validación final de copy de cada paso.
+
+### Fuera de alcance 3.5
+
+Diferenciadores, materiales, testimonios, FAQ, formulario, Instagram, blog, SEO avanzado.

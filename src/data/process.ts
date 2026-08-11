@@ -1,29 +1,38 @@
 import type { ProcessStep } from '@/types'
 
+/**
+ * Pasos del proceso Ferresa.
+ * Contenido provisional proporcionado por el cliente — pendiente de validación final.
+ * No agregar pagos, plazos, garantías u otros pasos no confirmados.
+ */
 export const processSteps: ProcessStep[] = [
   {
     number: '01',
     title: 'Cuéntanos tu idea',
-    description: 'Compartes lo que necesitas y el tipo de espacio.',
+    description:
+      'El cliente se comunica con Ferresa y explica qué necesita.',
   },
   {
     number: '02',
     title: 'Analizamos el espacio',
-    description: 'Revisamos medidas, uso y posibilidades del ambiente.',
+    description:
+      'Se revisan dimensiones, necesidades, estilo y presupuesto.',
   },
   {
     number: '03',
     title: 'Diseñamos',
-    description: 'Proponemos una solución a medida para tu proyecto.',
+    description: 'Se desarrolla una propuesta personalizada.',
   },
   {
     number: '04',
     title: 'Fabricamos',
-    description: 'Producimos el mobiliario según el diseño acordado.',
+    description:
+      'El mobiliario se produce de acuerdo con las especificaciones aprobadas.',
   },
   {
     number: '05',
     title: 'Instalamos',
-    description: 'Instalamos en sitio para entregar el resultado final.',
+    description:
+      'Ferresa realiza la instalación y entrega del proyecto.',
   },
 ]
