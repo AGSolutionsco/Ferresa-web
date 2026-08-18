@@ -9,11 +9,14 @@ export const mainNavigation: NavItem[] = [
   { label: 'Contacto', href: '/contacto' },
 ]
 
-/** Extensiones futuras — no presentar como contenido definitivo */
+/**
+ * Rutas futuras — no presentadas en navegación.
+ * Barranquilla ya es ciudad de operación; una landing dedicada sigue pendiente.
+ */
 export const futureRoutes = [
   {
     path: '/barranquilla',
-    note: 'PENDIENTE DE CONFIRMACIÓN DEL CLIENTE — expansión proyectada',
+    note: 'Landing dedicada pendiente — Ferresa ya opera en Barranquilla',
   },
   {
     path: '/blog',
