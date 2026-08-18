@@ -12,14 +12,9 @@ import { Image } from '@/components/ui/Image'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 
-const coreServiceIds = ['diseno', 'fabricacion', 'instalacion'] as const
-
 export function AboutPage() {
   usePageSeo(pageSeo.about.title, pageSeo.about.description)
   const { about } = homeContent
-  const coreServices = services.filter((item) =>
-    coreServiceIds.includes(item.id as (typeof coreServiceIds)[number]),
-  )
   const diffs = homeDifferentiatorIds
     .slice(0, 4)
     .map((id) => differentiators.find((item) => item.id === id))
@@ -41,12 +36,9 @@ export function AboutPage() {
               {paragraph}
             </p>
           ))}
-          {about.expansionNote ? (
+          {company.legalName ? (
             <p className="text-small text-ferresa-subtle">
-              {about.expansionNote}
-              <span className="sr-only">
-                . Expansión proyectada; no es una operación actual.
-              </span>
+              Razón social de origen: {company.legalName}.
             </p>
           ) : null}
         </div>
@@ -78,11 +70,11 @@ export function AboutPage() {
       <Section tone="muted" padding="lg" className="border-y border-ferresa-line">
         <SectionHeading
           title="Qué hace Ferresa"
-          description="Diseño, fabricación e instalación de mobiliario personalizado."
+          description="Desarrollamos proyectos de mobiliario personalizado con fabricación e instalación."
           titleAs="h2"
         />
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {coreServices.map((service) => (
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
             <article
               key={service.id}
               className="border border-ferresa-line bg-ferresa-surface p-6"
@@ -138,7 +130,7 @@ export function AboutPage() {
           ))}
         </ol>
         <Button to="/contacto" variant="primary" className="mt-10">
-          Cuéntanos tu proyecto
+          Solicitar cotización
         </Button>
       </Section>
     </>

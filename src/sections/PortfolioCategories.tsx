@@ -46,7 +46,7 @@ export function PortfolioCategories() {
           variant="featured"
           className="lg:col-span-7 lg:min-h-[36rem]"
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1 lg:gap-5">
+        <div className="grid gap-4 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-2 lg:gap-5">
           {secondary.map((category) => (
             <CategoryCard key={category.id} category={category} />
           ))}

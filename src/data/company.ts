@@ -1,29 +1,33 @@
 import type { CompanyInfo } from '@/types'
 
 /**
- * Datos confirmados de Ferresa.
- * No inventar campos: dejar opcionales o documentar pendiente.
+ * Datos confirmados de Ferresa (FASE 5 — fuente de verdad del cliente).
+ * No inventar campos no confirmados.
  */
 export const company: CompanyInfo = {
   name: 'Ferresa',
-  foundedYear: 2024,
+  legalName: 'Diseños y Maderas Álamo SAS',
+  foundedYear: 2023,
   tagline: 'Transformamos espacios en lugares únicos',
   supportingLine:
     'Diseñamos espacios. Fabricamos soluciones. Creamos ambientes únicos.',
   description:
-    'En Ferresa diseñamos, fabricamos e instalamos mobiliario personalizado para hogares, oficinas y espacios comerciales.',
+    'Ferresa se especializa en el diseño, fabricación e instalación de mobiliario para espacios interiores y exteriores, de uso habitacional o comercial.',
+  history: [
+    'Ferresa nació en 2023 bajo la razón social Diseños y Maderas Álamo SAS, mediante la cual comenzó a darse a conocer y desarrolló diferentes proyectos.',
+    'Hoy operamos en Medellín y Barranquilla, ofreciendo mobiliario personalizado para espacios habitacionales y comerciales.',
+    'Desarrollamos proyectos adaptados a las medidas, materiales, características del espacio, presupuesto y preferencias de cada cliente. Fabricamos e instalamos el mobiliario, e incluimos la instalación dentro de la cotización.',
+  ],
   primaryLocation: {
     city: 'Medellín',
     country: 'Colombia',
+    address: 'Calle 50 #77B-47, Medellín',
   },
-  plannedExpansion: {
-    city: 'Barranquilla',
-    statusLabel: 'Próximamente en Barranquilla',
-    note: 'Expansión proyectada. No es una operación actual. PENDIENTE DE CONFIRMACIÓN DEL CLIENTE.',
-  },
+  serviceCities: ['Medellín', 'Barranquilla'],
+  businessHours: '7:00 a. m. – 5:00 p. m.',
   whatsapp: {
-    number: '573245734731',
-    display: '324 573 4731',
+    number: '573152121687',
+    display: '315 212 1687',
   },
   social: {
     instagram: {
@@ -33,13 +37,14 @@ export const company: CompanyInfo = {
     },
   },
   contact: {
-    // email: PENDIENTE DE CONFIRMACIÓN DEL CLIENTE
-    // address: PENDIENTE DE CONFIRMACIÓN DEL CLIENTE
-    // mapsUrl: PENDIENTE DE CONFIRMACIÓN DEL CLIENTE
+    // email: NO DISPONIBLE — no inventar
+    address: 'Calle 50 #77B-47, Medellín',
+    mapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=Calle+50+%2377B-47%2C+Medell%C3%ADn%2C+Colombia',
   },
   flags: {
     showTestimonials: false,
     showMaterials: false,
-    showMaps: false,
+    showMaps: true,
   },
 }

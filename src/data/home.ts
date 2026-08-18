@@ -2,12 +2,11 @@ import { company } from './company'
 
 /**
  * Contenido editable de la Home.
- * Textos provisionales marcados explícitamente.
+ * FASE 5: alineado a información confirmada del cliente.
  */
 export const homeContent = {
   hero: {
-    eyebrow: `${company.primaryLocation.city}, ${company.primaryLocation.country}`,
-    /** H1 único de la Home */
+    eyebrow: `${company.serviceCities.join(' y ')} · Colombia`,
     title: company.tagline,
     description: company.description,
     supportingLine: company.supportingLine,
@@ -19,39 +18,27 @@ export const homeContent = {
       label: 'Ver nuestros proyectos',
       to: '/proyectos',
     },
-    /**
-     * Cuando exista fotografía real de proyecto, asignar ruta en /public.
-     * Ejemplo: '/images/projects/hero-01.jpg'
-     * null = DevImagePlaceholder (desarrollo).
-     */
     imageSrc: null as string | null,
     imageAlt:
       'Mobiliario personalizado Ferresa — fotografía de proyecto pendiente de carga',
   },
   valueProposition: {
     eyebrow: 'Enfoque',
-    title: 'Diseñamos para tu espacio',
-    /**
-     * Texto provisional de trabajo — editable desde datos.
-     * No agrega afirmaciones específicas no confirmadas.
-     */
-    provisional: true,
+    title: 'Mobiliario pensado para tu espacio',
+    provisional: false,
     description:
-      'Cada proyecto comienza con una necesidad diferente. En Ferresa desarrollamos soluciones de mobiliario pensadas para adaptarse al espacio, al estilo y a las necesidades de cada cliente.',
+      'Desarrollamos proyectos personalizados de acuerdo con las medidas, materiales, características del espacio, presupuesto y preferencias de cada cliente.',
     cta: {
-      label: 'Cuéntanos tu proyecto',
+      label: 'Solicitar cotización',
       to: '/contacto',
     },
   },
   portfolio: {
     eyebrow: 'Nuestro portafolio',
     title: 'Soluciones para cada espacio',
-    /**
-     * Copy provisional — editable desde datos.
-     */
-    provisional: true,
+    provisional: false,
     description:
-      'Desarrollamos mobiliario pensado para adaptarse a las necesidades, dimensiones y estilo de cada proyecto.',
+      'Trabajamos categorías confirmadas de mobiliario y ampliamos el catálogo a medida que el cliente incorpora nuevas líneas.',
     cta: {
       label: 'Ver todos los proyectos',
       to: '/proyectos',
@@ -60,14 +47,11 @@ export const homeContent = {
   featuredProjects: {
     eyebrow: 'Proyectos',
     title: 'Proyectos que hablan por nosotros',
-    /**
-     * Copy provisional — editable desde datos.
-     */
-    provisional: true,
-    description: 'Conoce algunos de los proyectos desarrollados por Ferresa.',
-    emptyMessage: 'Estamos preparando nuestro portafolio de proyectos.',
+    provisional: false,
+    description: 'Cuando incorporemos proyectos reales confirmados, aparecerán aquí.',
+    emptyMessage: 'Estamos preparando nuestro portafolio de proyectos reales.',
     emptyCta: {
-      label: 'Conoce nuestro trabajo',
+      label: 'Solicitar cotización',
       to: '/contacto',
     },
     cta: {
@@ -78,36 +62,24 @@ export const homeContent = {
   },
   about: {
     eyebrow: 'Sobre Ferresa',
-    title: 'Diseñamos espacios pensados para ti',
-    /**
-     * Párrafos provisionales proporcionados por el cliente.
-     */
-    provisional: true,
-    paragraphs: [
-      'Ferresa nace en 2024 con el propósito de transformar espacios a través del diseño y la fabricación de mobiliario personalizado.',
-      'Desde Medellín, desarrollamos soluciones pensadas para aprovechar cada espacio, combinando funcionalidad, diseño y calidad.',
-      'Nuestro trabajo integra diferentes etapas del proyecto: diseño, fabricación e instalación, ofreciendo a nuestros clientes una experiencia completa y personalizada.',
-    ],
-    /**
-     * Datos disponibles en company — solo confirmados/provisionales ya tipados.
-     */
+    title: 'Mobiliario personalizado para tu espacio',
+    provisional: false,
+    paragraphs: company.history,
     highlights: [
       {
-        label: 'Año de fundación',
+        label: 'Inicio de operaciones',
         value: String(company.foundedYear),
       },
       {
-        label: 'Ciudad principal',
-        value: company.primaryLocation.city,
+        label: 'Ciudades atendidas',
+        value: company.serviceCities.join(' y '),
       },
       {
         label: 'Ámbitos de trabajo',
-        value: 'Residencial y comercial',
+        value: 'Habitacional y comercial',
       },
     ],
-    expansionNote: company.plannedExpansion
-      ? `Próxima expansión: ${company.plannedExpansion.city}`
-      : null,
+    expansionNote: null as string | null,
     imageSrc: null as string | null,
     imageAlt:
       'Sobre Ferresa — fotografía de taller o proyecto pendiente de carga',
@@ -119,31 +91,25 @@ export const homeContent = {
   process: {
     eyebrow: 'Nuestro proceso',
     title: 'De la idea a la instalación',
-    /**
-     * Copy provisional — pasos en src/data/process.ts
-     */
-    provisional: true,
+    provisional: false,
     description:
       'Así acompañamos cada proyecto: desde la primera conversación hasta la instalación.',
     primaryCta: {
-      label: 'Cuéntanos tu proyecto',
+      label: 'Solicitar cotización',
       to: '/contacto',
     },
     whatsappCta: {
       label: 'Escríbenos por WhatsApp',
       message:
-        'Hola Ferresa, quiero hablar sobre un proyecto de mobiliario.',
+        'Hola, Ferresa. Estoy interesado en realizar un proyecto de mobiliario y quisiera recibir información y una cotización.',
     },
   },
   differentiators: {
     eyebrow: '¿Por qué Ferresa?',
-    title: 'Diseñamos pensando en tu espacio',
-    /**
-     * Copy provisional — ítems en src/data/differentiators.ts
-     */
-    provisional: true,
+    title: 'Pensamos en tu espacio',
+    provisional: false,
     description:
-      'Un enfoque claro: personalización, fabricación a medida y acompañamiento en cada etapa.',
+      'Personalización, fabricación a medida e instalación incluida en la cotización.',
   },
   testimonials: {
     eyebrow: 'Testimonios',
@@ -156,22 +122,22 @@ export const homeContent = {
     eyebrow: 'Preguntas frecuentes',
     title: 'Resolvemos tus dudas',
     description:
-      'Respuestas confirmadas se publicarán aquí. Mientras tanto, escríbenos y te orientamos.',
+      'Respuestas confirmadas se publicarán aquí. Mientras tanto, escríbenos por WhatsApp.',
     emptyMessage:
       'Estamos preparando las preguntas frecuentes con información confirmada.',
   },
   finalCta: {
     title: '¿Tienes un proyecto en mente?',
     description:
-      'Cuéntanos qué necesitas. En Ferresa te acompañamos desde la idea hasta la instalación.',
+      'Cuéntanos qué necesitas. En Ferresa te acompañamos desde la cotización hasta la instalación.',
     primaryCta: {
-      label: 'Cuéntanos tu proyecto',
+      label: 'Solicitar cotización',
       to: '/contacto',
     },
     whatsappCta: {
       label: 'Escríbenos por WhatsApp',
       message:
-        'Hola Ferresa, estoy interesado en realizar un proyecto de mobiliario. Me gustaría recibir información y una cotización.',
+        'Hola, Ferresa. Estoy interesado en realizar un proyecto de mobiliario y quisiera recibir información y una cotización.',
     },
   },
 } as const

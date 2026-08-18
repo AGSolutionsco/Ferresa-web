@@ -1,12 +1,14 @@
 /** Tipos compartidos del sitio Ferresa */
 
+/** Categorías confirmadas + preparadas para ampliación futura */
 export type ProjectCategoryId =
   | 'cocinas'
   | 'closets'
-  | 'vestidores'
-  | 'salas'
   | 'centros-de-entretenimiento'
   | 'recibidores'
+  | 'espejos'
+  | 'vestidores'
+  | 'salas'
   | 'oficinas'
   | 'comercial'
   | 'proyectos-especiales'
@@ -15,27 +17,24 @@ export interface ProjectCategory {
   id: ProjectCategoryId
   label: string
   description?: string
+  /** Solo mostrar en catálogo público si true */
+  confirmed: boolean
 }
 
 /**
  * Categoría principal del portafolio (Home / navegación comercial).
- * Distinta de ProjectCategory (taxonomía fina de proyectos individuales).
  */
 export interface PortfolioCategory {
   id: string
   name: string
   slug: string
-  /** Resumen breve de tipologías — solo con items confirmados */
   summary?: string
   description?: string
-  /** Ruta en /public; null/undefined = placeholder de desarrollo */
   imageSrc?: string | null
   imageAlt?: string
   href: string
-  /** Destaca en layout editorial de Home */
   featured?: boolean
 }
-
 
 export interface Project {
   id: string
@@ -47,7 +46,6 @@ export interface Project {
   images: string[]
   features: string[]
   workType?: string
-  /** Si false, no se muestra en listados públicos */
   published: boolean
   featured?: boolean
 }
@@ -56,7 +54,6 @@ export interface Service {
   id: string
   title: string
   description: string
-  /** Icono / imagen opcional — por definir en fases de UI */
   icon?: string
 }
 
@@ -80,7 +77,6 @@ export interface NavItem {
 export interface SocialLink {
   label: string
   href: string
-  /** handle visible, ej. @ferresa.co */
   handle?: string
 }
 
@@ -91,21 +87,17 @@ export interface CompanyInfo {
   tagline: string
   supportingLine: string
   description: string
+  history: string[]
   primaryLocation: {
     city: string
     country: string
+    address?: string
   }
-  /**
-   * Expansión proyectada — NO presentar como operación actual.
-   * PENDIENTE DE CONFIRMACIÓN DEL CLIENTE para fechas/detalles.
-   */
-  plannedExpansion?: {
-    city: string
-    statusLabel: string
-    note: string
-  }
+  /** Ciudades donde presta servicios actualmente */
+  serviceCities: string[]
+  businessHours?: string
   whatsapp: {
-    /** Solo dígitos con código de país, ej. 573245734731 */
+    /** Solo dígitos con código de país, ej. 573152121687 */
     number: string
     display: string
   }
@@ -118,11 +110,8 @@ export interface CompanyInfo {
     mapsUrl?: string
   }
   flags: {
-    /** Activar cuando existan testimonios reales confirmados */
     showTestimonials: boolean
-    /** Activar cuando materiales estén confirmados por el cliente */
     showMaterials: boolean
-    /** Activar cuando exista dirección exacta */
     showMaps: boolean
   }
 }
@@ -135,7 +124,6 @@ export interface QuoteProjectType {
 export interface MaterialItem {
   id: string
   label: string
-  /** true solo cuando el cliente confirmó el material */
   confirmed: boolean
 }
 
@@ -146,7 +134,6 @@ export interface Testimonial {
   quote: string
   projectTitle?: string
   imageSrc?: string | null
-  /** Solo mostrar en UI si true */
   published: boolean
 }
 
@@ -154,7 +141,6 @@ export interface FaqItem {
   id: string
   question: string
   answer: string
-  /** Solo mostrar en UI si true */
   published: boolean
 }
 

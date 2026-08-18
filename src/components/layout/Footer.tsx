@@ -19,8 +19,16 @@ export function Footer() {
             <Logo tone="dark" />
             <p className="text-body text-ferresa-subtle">{company.description}</p>
             <p className="text-small text-ferresa-subtle">
-              {company.primaryLocation.city}, {company.primaryLocation.country}
+              {company.serviceCities.join(' y ')}, {company.primaryLocation.country}
             </p>
+            {company.contact.address ? (
+              <p className="text-small text-ferresa-subtle">{company.contact.address}</p>
+            ) : null}
+            {company.businessHours ? (
+              <p className="text-small text-ferresa-subtle">
+                Horario: {company.businessHours}
+              </p>
+            ) : null}
           </div>
 
           <div>
@@ -60,7 +68,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-ferresa-inverse/85 hover:text-ferresa-inverse"
                 >
-                  WhatsApp {company.whatsapp.display}
+                  WhatsApp
                 </AppLink>
               </li>
               <li>
@@ -73,18 +81,17 @@ export function Footer() {
                   Instagram {company.social.instagram.handle}
                 </AppLink>
               </li>
-              {company.contact.email ? (
+              {company.flags.showMaps && company.contact.mapsUrl ? (
                 <li>
                   <AppLink
-                    href={`mailto:${company.contact.email}`}
+                    href={company.contact.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-ferresa-inverse/85 hover:text-ferresa-inverse"
                   >
-                    {company.contact.email}
+                    Google Maps
                   </AppLink>
                 </li>
-              ) : null}
-              {company.contact.address ? (
-                <li className="text-ferresa-subtle">{company.contact.address}</li>
               ) : null}
             </ul>
           </div>
@@ -94,7 +101,7 @@ export function Footer() {
           <p>
             © {year} {company.name}. Todos los derechos reservados.
           </p>
-          <p>Diseño y fabricación de mobiliario personalizado.</p>
+          <p>Fabricación e instalación de mobiliario personalizado.</p>
         </div>
       </Container>
     </footer>

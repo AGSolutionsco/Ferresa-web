@@ -1,51 +1,53 @@
 import type { Differentiator } from '@/types'
 
 /**
- * Diferenciadores Ferresa.
- * Contenido provisional proporcionado por el cliente — pendiente de validación final.
- * No agregar beneficios no confirmados (garantías, precios, certificaciones, etc.).
+ * Diferenciadores — alineados a información confirmada (FASE 5).
+ * Sin asesoría formal como servicio principal, sin equipo interno de diseño.
  */
 export const differentiators: Differentiator[] = [
   {
     id: 'diseno-personalizado',
-    title: 'Diseño personalizado',
+    title: 'Proyectos personalizados',
     description:
-      'Cada proyecto se adapta a las necesidades y dimensiones del cliente.',
+      'Cada proyecto se adapta a las necesidades y características particulares de cada cliente.',
   },
   {
     id: 'fabricacion-a-medida',
     title: 'Fabricación a medida',
-    description: 'Creamos soluciones que se ajustan al espacio disponible.',
+    description:
+      'Fabricamos soluciones que se ajustan al espacio disponible y a las especificaciones del proyecto.',
   },
   {
     id: 'servicio-integral',
     title: 'Servicio integral',
-    description: 'Diseñamos, fabricamos e instalamos.',
+    description:
+      'Acompañamos el proyecto desde la cotización hasta la fabricación e instalación.',
   },
   {
     id: 'aprovechamiento-espacio',
     title: 'Aprovechamiento del espacio',
-    description: 'Buscamos que cada metro cuadrado tenga una función.',
+    description:
+      'Buscamos que cada metro cuadrado tenga una función según el uso real del ambiente.',
   },
   {
-    id: 'atencion-personalizada',
-    title: 'Atención personalizada',
+    id: 'instalacion-incluida',
+    title: 'Instalación incluida en la cotización',
     description:
-      'Acompañamos al cliente durante el desarrollo del proyecto.',
+      'La instalación forma parte del servicio y su costo se incluye en la cotización.',
   },
   {
     id: 'residencial-comercial',
-    title: 'Soluciones residenciales y comerciales',
-    description: 'Atendemos hogares y negocios.',
+    title: 'Residencial y comercial',
+    description:
+      'Atendemos espacios habitacionales y comerciales en Medellín y Barranquilla.',
   },
 ]
 
-/** Prioridad visual en Home (orden de aparición). */
 export const homeDifferentiatorIds = [
   'diseno-personalizado',
   'fabricacion-a-medida',
   'servicio-integral',
   'aprovechamiento-espacio',
-  'atencion-personalizada',
+  'instalacion-incluida',
   'residencial-comercial',
 ] as const

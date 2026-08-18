@@ -141,7 +141,7 @@ export function Header() {
           </Button>
 
           <p className="text-small text-ferresa-muted">
-            {company.primaryLocation.city}, {company.primaryLocation.country}
+            {company.serviceCities.join(' y ')}
           </p>
         </Container>
       </div>

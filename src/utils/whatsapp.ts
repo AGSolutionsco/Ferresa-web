@@ -1,13 +1,10 @@
 import { company } from '@/data/company'
 
 const DEFAULT_MESSAGE =
-  'Hola Ferresa, estoy interesado en realizar un proyecto de mobiliario. Me gustaría recibir información y una cotización.'
-
+  'Hola, Ferresa. Estoy interesado en realizar un proyecto de mobiliario y quisiera recibir información y una cotización.'
 
 /**
  * Genera un enlace wa.me compatible con iPhone, Android y desktop.
- * @param message Mensaje prellenado (opcional)
- * @param phoneNumber Solo dígitos con código de país (opcional; usa company por defecto)
  */
 export function generateWhatsAppLink(
   message: string = DEFAULT_MESSAGE,
@@ -19,11 +16,15 @@ export function generateWhatsAppLink(
 }
 
 export function projectInterestMessage(projectTitle: string): string {
-  return `Hola Ferresa, estoy interesado en el proyecto ${projectTitle}. Me gustaría conocer más información.`
+  return `Hola, Ferresa. Estoy interesado en el proyecto ${projectTitle} que vi en su página web. Me gustaría conocer más información y solicitar una cotización.`
 }
 
 export function similarProjectMessage(projectTitle: string): string {
-  return `Hola Ferresa, vi el proyecto ${projectTitle} en su página web y me gustaría realizar un proyecto similar. Quisiera conocer más información.`
+  return `Hola, Ferresa. Estoy interesado en el proyecto ${projectTitle} que vi en su página web. Me gustaría conocer más información y solicitar una cotización.`
+}
+
+export function categoryInterestMessage(categoryName: string): string {
+  return `Hola, Ferresa. Estoy interesado en ${categoryName} y quisiera conocer más información y solicitar una cotización.`
 }
 
 export function quoteFormMessage(input: {
@@ -34,16 +35,18 @@ export function quoteFormMessage(input: {
   description: string
 }): string {
   return [
-    'Hola Ferresa,',
+    'Hola, Ferresa.',
     '',
     `Mi nombre es ${input.name}.`,
     '',
-    `Estoy interesado en un proyecto de ${input.projectType}.`,
-    `WhatsApp / teléfono: ${input.phone}`,
-    `Ciudad: ${input.city}`,
+    `Estoy en ${input.city}.`,
     '',
-    'Descripción:',
+    `Estoy interesado en ${input.projectType}.`,
+    '',
+    'Detalles de mi proyecto:',
     input.description,
+    '',
+    `Mi WhatsApp / teléfono: ${input.phone}`,
     '',
     'Me gustaría recibir información y una cotización.',
   ].join('\n')

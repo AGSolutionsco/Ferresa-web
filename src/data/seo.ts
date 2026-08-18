@@ -1,45 +1,45 @@
 import type { PageSeo } from '@/types'
 import { company } from './company'
 
-const location = `${company.primaryLocation.city}, ${company.primaryLocation.country}`
+const cities = company.serviceCities.join(' y ')
 
 /**
- * SEO base por ruta — sin keywords artificiales.
+ * SEO base por ruta — Medellín y Barranquilla (operación actual).
  */
 export const pageSeo = {
   home: {
-    title: `Ferresa | Mobiliario personalizado en ${company.primaryLocation.city}`,
+    title: `Ferresa | Mobiliario personalizado en ${cities}`,
     description: company.description,
   },
   projects: {
-    title: `Proyectos | Ferresa — ${location}`,
+    title: `Proyectos | Ferresa — ${cities}`,
     description:
-      'Conoce proyectos de mobiliario personalizado diseñados, fabricados e instalados por Ferresa.',
+      'Conoce proyectos de mobiliario personalizado fabricados e instalados por Ferresa.',
   },
   projectDetail: (projectTitle: string): PageSeo => ({
     title: `${projectTitle} | Proyectos Ferresa`,
-    description: `Proyecto ${projectTitle} de mobiliario personalizado por Ferresa en ${company.primaryLocation.city}.`,
+    description: `Proyecto ${projectTitle} de mobiliario personalizado por Ferresa.`,
   }),
   projectNotFound: {
-    title: `Proyecto no encontrado | Ferresa`,
+    title: 'Proyecto no encontrado | Ferresa',
     description: 'El proyecto solicitado no está disponible.',
   },
   services: {
-    title: `Servicios y soluciones | Ferresa — ${location}`,
+    title: `Servicios | Ferresa — ${cities}`,
     description:
-      'Soluciones de mobiliario residencial, oficinas, comercial y proyectos personalizados.',
+      'Fabricación, personalización e instalación de mobiliario para espacios habitacionales y comerciales.',
   },
   about: {
-    title: `Nosotros | Ferresa — ${location}`,
-    description: `Conoce a Ferresa: diseño, fabricación e instalación de mobiliario personalizado desde ${company.primaryLocation.city}.`,
+    title: `Nosotros | Ferresa — ${cities}`,
+    description: `Ferresa nació en ${company.foundedYear}. Fabricación e instalación de mobiliario personalizado en ${cities}.`,
   },
   contact: {
-    title: `Contacto y cotización | Ferresa — ${location}`,
+    title: `Cotizar proyecto | Ferresa — ${cities}`,
     description:
-      'Cuéntanos tu proyecto de mobiliario. Solicita información y cotización con Ferresa.',
+      'Solicita una cotización de mobiliario personalizado. WhatsApp es nuestro canal principal.',
   },
   notFound: {
-    title: `Página no encontrada | Ferresa`,
+    title: 'Página no encontrada | Ferresa',
     description: 'La página solicitada no existe.',
   },
 } as const

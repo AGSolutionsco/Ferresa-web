@@ -1,5 +1,6 @@
 export { company } from './company'
-export { categories, portfolioCategories, categoryCatalog } from './categories'
+export { categories, confirmedCategories, portfolioCategories, categoryCatalog } from './categories'
+
 export { projects, getFeaturedProjects, getPublishedProjects, getProjectBySlug } from './projects'
 export { services } from './services'
 export { processSteps } from './process'

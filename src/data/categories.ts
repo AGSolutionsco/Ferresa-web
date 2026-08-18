@@ -1,106 +1,99 @@
 import type { PortfolioCategory, ProjectCategory } from '@/types'
 
 /**
- * Taxonomía fina de proyectos (filtros / detalle).
- * Se mantiene para FASE 4 — no inventar ítems.
+ * Taxonomía de proyectos.
+ * confirmed: true = producto confirmado por el cliente (FASE 5).
+ * El resto queda preparado para ampliación futura — no se muestra en Home/catálogo público.
  */
 export const categories: ProjectCategory[] = [
-  { id: 'cocinas', label: 'Cocinas' },
-  { id: 'closets', label: 'Closets' },
-  { id: 'vestidores', label: 'Vestidores' },
-  { id: 'salas', label: 'Salas' },
+  { id: 'cocinas', label: 'Cocinas', confirmed: true },
+  { id: 'closets', label: 'Closets', confirmed: true },
   {
     id: 'centros-de-entretenimiento',
     label: 'Centros de entretenimiento',
+    confirmed: true,
   },
-  { id: 'recibidores', label: 'Recibidores' },
-  { id: 'oficinas', label: 'Oficinas' },
-  { id: 'comercial', label: 'Comercial' },
-  { id: 'proyectos-especiales', label: 'Proyectos especiales' },
+  { id: 'recibidores', label: 'Recibidores', confirmed: true },
+  { id: 'espejos', label: 'Espejos', confirmed: true },
+  // Preparadas — PENDIENTE DE CONFIRMACIÓN DEL CLIENTE
+  { id: 'vestidores', label: 'Vestidores', confirmed: false },
+  { id: 'salas', label: 'Salas', confirmed: false },
+  { id: 'oficinas', label: 'Oficinas', confirmed: false },
+  { id: 'comercial', label: 'Comercial', confirmed: false },
+  { id: 'proyectos-especiales', label: 'Proyectos especiales', confirmed: false },
 ]
 
+export const confirmedCategories = categories.filter((item) => item.confirmed)
+
 /**
- * Catálogo detallado (cliente) — preparado para /servicios.
- * No se renderiza ítem por ítem en la Home.
+ * Catálogo público — solo productos confirmados.
+ * Ampliar cuando el cliente entregue más categorías.
  */
 export const categoryCatalog = {
-  hogar: [
-    'Cocinas integrales',
+  confirmados: [
+    'Cocinas',
     'Closets',
-    'Vestidores',
     'Centros de entretenimiento',
-    'Muebles de sala',
     'Recibidores',
-    'Consolas',
-    'Muebles de habitaciones',
-    'Mesas de noche',
-    'Muebles de baño',
-    'Bibliotecas',
-    'Paneles decorativos',
-    'Repisas',
-    'Muebles auxiliares',
-  ],
-  empresas: [
-    'Mobiliario de oficinas',
-    'Escritorios',
-    'Recepciones',
-    'Muebles para locales comerciales',
-    'Exhibidores',
-    'Estanterías',
-    'Mobiliario corporativo',
-  ],
-  especiales: [
-    'Muebles personalizados',
-    'Soluciones personalizadas según dimensiones y necesidades',
+    'Espejos',
   ],
 } as const
 
 /**
- * Categorías principales de Home — puente comercial.
- * Imágenes: null hasta cargar fotos reales en public/images.
+ * Categorías de Home / puente comercial — solo confirmadas.
  */
 export const portfolioCategories: PortfolioCategory[] = [
   {
-    id: 'hogar',
-    name: 'Hogar',
-    slug: 'hogar',
-    summary: 'Cocinas · Closets · Salas · Vestidores',
+    id: 'cocinas',
+    name: 'Cocinas',
+    slug: 'cocinas',
+    summary: 'Mobiliario de cocina a medida',
     description:
-      'Mobiliario residencial personalizado para distintos ambientes del hogar.',
+      'Cocinas personalizadas según medidas, materiales y espacio disponible.',
     imageSrc: null,
-    imageAlt: 'Categoría Hogar — fotografía pendiente',
-    href: '/proyectos',
+    imageAlt: 'Categoría Cocinas — fotografía pendiente',
+    href: '/servicios',
     featured: true,
   },
   {
-    id: 'oficinas',
-    name: 'Oficinas',
-    slug: 'oficinas',
-    summary: 'Escritorios · Recepciones · Corporativo',
-    description: 'Soluciones de mobiliario para espacios de trabajo.',
+    id: 'closets',
+    name: 'Closets',
+    slug: 'closets',
+    summary: 'Organización a medida',
+    description: 'Closets adaptados al espacio y a las necesidades de uso.',
     imageSrc: null,
-    imageAlt: 'Categoría Oficinas — fotografía pendiente',
-    href: '/proyectos',
+    imageAlt: 'Categoría Closets — fotografía pendiente',
+    href: '/servicios',
   },
   {
-    id: 'comercial',
-    name: 'Comercial',
-    slug: 'comercial',
-    summary: 'Locales · Exhibidores · Estanterías',
-    description: 'Mobiliario para locales y espacios comerciales.',
-    imageSrc: null,
-    imageAlt: 'Categoría Comercial — fotografía pendiente',
-    href: '/proyectos',
-  },
-  {
-    id: 'proyectos-personalizados',
-    name: 'Proyectos personalizados',
-    slug: 'proyectos-personalizados',
-    summary: 'A medida según espacio y necesidad',
+    id: 'centros-de-entretenimiento',
+    name: 'Centros de entretenimiento',
+    slug: 'centros-de-entretenimiento',
+    summary: 'Salas y espacios de TV',
     description:
-      'Proyectos especiales y soluciones personalizadas según dimensiones y necesidades.',
+      'Centros de entretenimiento diseñados para el ambiente y el uso diario.',
     imageSrc: null,
-    imageAlt: 'Categoría Proyectos personalizados — fotografía pendiente',
+    imageAlt: 'Categoría Centros de entretenimiento — fotografía pendiente',
+    href: '/servicios',
+  },
+  {
+    id: 'recibidores',
+    name: 'Recibidores',
+    slug: 'recibidores',
+    summary: 'Primer impacto del hogar',
+    description: 'Recibidores funcionales y a medida para el ingreso.',
+    imageSrc: null,
+    imageAlt: 'Categoría Recibidores — fotografía pendiente',
+    href: '/servicios',
+  },
+  {
+    id: 'espejos',
+    name: 'Espejos',
+    slug: 'espejos',
+    summary: 'Complementos a medida',
+    description: 'Espejos adaptados al proyecto y al espacio.',
+    imageSrc: null,
+    imageAlt: 'Categoría Espejos — fotografía pendiente',
     href: '/servicios',
   },
 ]
