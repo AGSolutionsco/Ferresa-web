@@ -72,7 +72,6 @@ export function ProjectDetailPage() {
           loading="eager"
           fetchPriority="high"
           className="min-h-[18rem] sm:min-h-[24rem] lg:min-h-[32rem] lg:aspect-auto"
-          placeholderCaption="Fotografía pendiente"
         />
 
         {gallery.length > 0 ? (
@@ -108,7 +107,7 @@ export function ProjectDetailPage() {
             Quiero un proyecto similar
           </Button>
           <Button to="/contacto" variant="secondary">
-            Solicitar cotización
+            Cotizar mi proyecto
           </Button>
         </div>
       </Container>

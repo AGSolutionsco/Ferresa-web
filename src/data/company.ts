@@ -11,11 +11,11 @@ export const company: CompanyInfo = {
   tagline: 'Transformamos espacios en lugares únicos',
   supportingLine:
     'Diseñamos espacios. Fabricamos soluciones. Creamos ambientes únicos.',
-  description:
-    'Ferresa se especializa en el diseño, fabricación e instalación de mobiliario para espacios interiores y exteriores, de uso habitacional o comercial.',
-  history: [
-    'Ferresa nació en 2023 bajo la razón social Diseños y Maderas Álamo SAS, mediante la cual comenzó a darse a conocer y desarrolló diferentes proyectos.',
-    'Hoy operamos en Medellín y Barranquilla, ofreciendo mobiliario personalizado para espacios habitacionales y comerciales.',
+    description:
+      'Ferresa se especializa en el diseño, fabricación e instalación de mobiliario para espacios interiores y exteriores, residenciales y comerciales.',
+    history: [
+      'Ferresa nació en 2023 bajo la razón social Diseños y Maderas Álamo SAS, mediante la cual comenzó a darse a conocer y desarrolló diferentes proyectos.',
+      'Hoy operamos en Medellín y Barranquilla, ofreciendo mobiliario personalizado para espacios residenciales y comerciales.',
     'Desarrollamos proyectos adaptados a las medidas, materiales, características del espacio, presupuesto y preferencias de cada cliente. Fabricamos e instalamos el mobiliario, e incluimos la instalación dentro de la cotización.',
   ],
   primaryLocation: {

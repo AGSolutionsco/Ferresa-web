@@ -30,9 +30,6 @@ function HeroContent({ className }: { className?: string }) {
               </span>
             ))}
           </h1>
-          <p className="max-w-md text-h3 font-display text-ferresa-ink-soft">
-            {hero.title}
-          </p>
           <p className="max-w-md text-body text-ferresa-muted">{hero.description}</p>
         </div>
 
@@ -55,7 +52,7 @@ function HeroMedia({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'reveal-up relative isolate min-h-[22rem] overflow-hidden sm:min-h-[26rem] lg:min-h-full',
+        'reveal-up relative isolate min-h-[16rem] overflow-hidden sm:min-h-[22rem] lg:min-h-full',
         className,
       )}
       style={{ animationDelay: '120ms' }}
@@ -69,8 +66,7 @@ function HeroMedia({ className }: { className?: string }) {
         height={1500}
         loading="eager"
         fetchPriority="high"
-        className="absolute inset-0 min-h-[22rem] sm:min-h-[26rem] lg:min-h-full"
-        placeholderCaption="Fotografía de proyecto pendiente"
+        className="absolute inset-0 min-h-[16rem] sm:min-h-[22rem] lg:min-h-full"
       />
     </div>
   )
@@ -87,7 +83,7 @@ export function Hero() {
       className="border-b border-ferresa-line bg-ferresa-canvas"
     >
       <Container className="grid lg:min-h-[calc(100dvh-4.75rem)] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-0">
-        <HeroContent className="py-14 sm:py-16 lg:py-24 lg:pr-12 xl:pr-16" />
+        <HeroContent className="py-10 sm:py-14 lg:py-24 lg:pr-12 xl:pr-16" />
         <HeroMedia className="-mx-5 sm:-mx-6 lg:mx-0 lg:min-h-[calc(100dvh-4.75rem)]" />
       </Container>
     </section>

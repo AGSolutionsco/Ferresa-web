@@ -52,7 +52,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     description:
       'Cocinas personalizadas según medidas, materiales y espacio disponible.',
     imageSrc: null,
-    imageAlt: 'Categoría Cocinas — fotografía pendiente',
+    imageAlt: 'Cocinas a medida Ferresa',
     href: '/servicios#cocinas',
     featured: true,
   },
@@ -63,7 +63,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     summary: 'Organización a medida',
     description: 'Closets adaptados al espacio y a las necesidades de uso.',
     imageSrc: null,
-    imageAlt: 'Categoría Closets — fotografía pendiente',
+    imageAlt: 'Closets a medida Ferresa',
     href: '/servicios#closets',
   },
   {
@@ -74,7 +74,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     description:
       'Centros de entretenimiento diseñados para el ambiente y el uso diario.',
     imageSrc: null,
-    imageAlt: 'Categoría Centros de entretenimiento — fotografía pendiente',
+    imageAlt: 'Centros de entretenimiento a medida Ferresa',
     href: '/servicios#centros-de-entretenimiento',
   },
   {
@@ -84,7 +84,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     summary: 'Primer impacto del hogar',
     description: 'Recibidores funcionales y a medida para el ingreso.',
     imageSrc: null,
-    imageAlt: 'Categoría Recibidores — fotografía pendiente',
+    imageAlt: 'Recibidores a medida Ferresa',
     href: '/servicios#recibidores',
   },
   {
@@ -94,7 +94,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     summary: 'Complementos a medida',
     description: 'Espejos adaptados al proyecto y al espacio.',
     imageSrc: null,
-    imageAlt: 'Categoría Espejos — fotografía pendiente',
+    imageAlt: 'Espejos a medida Ferresa',
     href: '/servicios#espejos',
   },
 ]

@@ -39,7 +39,7 @@ export const differentiators: Differentiator[] = [
     id: 'residencial-comercial',
     title: 'Residencial y comercial',
     description:
-      'Atendemos espacios habitacionales y comerciales en Medellín y Barranquilla.',
+      'Atendemos espacios residenciales y comerciales en Medellín y Barranquilla.',
   },
 ]
 

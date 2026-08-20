@@ -12,8 +12,8 @@ import { pageSeo } from '@/data/seo'
 import { usePageSeo } from '@/hooks/usePageSeo'
 
 /**
- * Home — FASE 6
- * Testimonios/FAQ solo se renderizan si hay contenido publicado.
+ * Home — FASE 7
+ * Testimonios, FAQ y proyectos destacados solo se renderizan si hay contenido publicado.
  */
 export function HomePage() {
   usePageSeo(pageSeo.home.title, pageSeo.home.description)

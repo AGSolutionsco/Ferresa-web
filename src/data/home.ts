@@ -15,12 +15,11 @@ export const homeContent = {
       to: '/contacto',
     },
     secondaryCta: {
-      label: 'Ver nuestros proyectos',
-      to: '/proyectos',
+      label: 'Ver soluciones',
+      to: '/servicios',
     },
     imageSrc: null as string | null,
-    imageAlt:
-      'Mobiliario personalizado Ferresa — fotografía de proyecto pendiente de carga',
+    imageAlt: 'Mobiliario personalizado Ferresa',
   },
   valueProposition: {
     eyebrow: 'Enfoque',
@@ -29,19 +28,19 @@ export const homeContent = {
     description:
       'Desarrollamos proyectos personalizados de acuerdo con las medidas, materiales, características del espacio, presupuesto y preferencias de cada cliente.',
     cta: {
-      label: 'Solicitar cotización',
+      label: 'Cotizar mi proyecto',
       to: '/contacto',
     },
   },
   portfolio: {
-    eyebrow: 'Nuestro portafolio',
+    eyebrow: 'Soluciones',
     title: 'Soluciones para cada espacio',
     provisional: false,
     description:
       'Cocinas, closets, centros de entretenimiento, recibidores y espejos, desarrollados a medida para cada espacio.',
     cta: {
-      label: 'Ver todos los proyectos',
-      to: '/proyectos',
+      label: 'Ver servicios',
+      to: '/servicios',
     },
   },
   featuredProjects: {
@@ -49,12 +48,12 @@ export const homeContent = {
     title: 'Proyectos que hablan por nosotros',
     provisional: false,
     description:
-      'Cuando incorporemos proyectos reales confirmados, aparecerán aquí.',
-    emptyTitle: 'Portafolio en preparación',
+      'Una selección de trabajos de mobiliario personalizado fabricados e instalados por Ferresa.',
+    emptyTitle: 'Estamos documentando nuestros proyectos',
     emptyMessage:
-      'Estamos incorporando nuestro portafolio de proyectos reales. Si tienes una idea, cuéntanosla y te orientamos.',
+      'Mientras tanto, cuéntanos tu idea y te orientamos sobre el siguiente paso.',
     emptyCta: {
-      label: 'Solicitar cotización',
+      label: 'Cotizar mi proyecto',
       to: '/contacto',
     },
     cta: {
@@ -79,13 +78,12 @@ export const homeContent = {
       },
       {
         label: 'Ámbitos de trabajo',
-        value: 'Habitacional y comercial',
+        value: 'Residencial y comercial',
       },
     ],
     expansionNote: null as string | null,
     imageSrc: null as string | null,
-    imageAlt:
-      'Sobre Ferresa — fotografía de taller o proyecto pendiente de carga',
+    imageAlt: 'Ferresa — fabricación e instalación de mobiliario personalizado',
     cta: {
       label: 'Conoce más sobre Ferresa',
       to: '/nosotros',
@@ -98,7 +96,7 @@ export const homeContent = {
     description:
       'Así acompañamos cada proyecto: desde la primera conversación hasta la instalación.',
     primaryCta: {
-      label: 'Solicitar cotización',
+      label: 'Cotizar mi proyecto',
       to: '/contacto',
     },
     whatsappCta: {
@@ -134,7 +132,7 @@ export const homeContent = {
     description:
       'Cuéntanos qué necesitas. En Ferresa te acompañamos desde la cotización hasta la instalación.',
     primaryCta: {
-      label: 'Solicitar cotización',
+      label: 'Cotizar mi proyecto',
       to: '/contacto',
     },
     whatsappCta: {

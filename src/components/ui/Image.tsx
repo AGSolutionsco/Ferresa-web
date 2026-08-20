@@ -44,7 +44,7 @@ const aspectClasses = {
 
 /** Placeholder de desarrollo — no usar como contenido final. */
 export function DevImagePlaceholder({
-  label = 'Fotografía pendiente',
+  label = '',
   className,
   aspect = 'wide',
 }: DevPlaceholderProps) {
@@ -58,9 +58,11 @@ export function DevImagePlaceholder({
         className,
       )}
     >
-      <span className="relative z-10 text-[0.7rem] font-medium tracking-[0.16em] text-ferresa-muted/80 uppercase">
-        {label}
-      </span>
+      {label ? (
+        <span className="relative z-10 text-[0.7rem] font-medium tracking-[0.16em] text-ferresa-muted/80 uppercase">
+          {label}
+        </span>
+      ) : null}
     </div>
   )
 }

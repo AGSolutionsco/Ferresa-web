@@ -3,7 +3,6 @@ import { company } from '@/data/company'
 import { usePageSeo } from '@/hooks/usePageSeo'
 import { PageHero } from '@/components/layout/PageShell'
 import { Container } from '@/components/ui/Container'
-import { Button } from '@/components/ui/Button'
 import { AppLink } from '@/components/ui/Link'
 import { Reveal } from '@/components/ui/Reveal'
 import { generateWhatsAppLink } from '@/utils/whatsapp'
@@ -20,20 +19,11 @@ export function ContactPage() {
       <PageHero
         eyebrow="Contacto"
         title="Cuéntanos tu proyecto"
-        description="Completa el formulario y continúa por WhatsApp para recibir información y una cotización. WhatsApp es nuestro canal principal."
+        description="WhatsApp es nuestro canal principal. Completa el formulario y continúa con tu mensaje listo para enviar."
       />
 
       <Container className="grid gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16 lg:py-20">
-        <Reveal className="space-y-8">
-          <Button
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="primary"
-            className="w-full sm:w-auto"
-          >
-            Cotizar por WhatsApp
-          </Button>
+        <Reveal className="space-y-6">
           <ContactForm />
         </Reveal>
 
@@ -42,7 +32,7 @@ export function ContactPage() {
             <h2 className="text-h3">Información de contacto</h2>
             <ul className="space-y-6 text-body text-ferresa-muted">
               <li>
-                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                <span className="block text-small tracking-[0.14em] text-ferresa-muted uppercase">
                   WhatsApp
                 </span>
                 <AppLink
@@ -55,7 +45,7 @@ export function ContactPage() {
                 </AppLink>
               </li>
               <li>
-                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                <span className="block text-small tracking-[0.14em] text-ferresa-muted uppercase">
                   Instagram
                 </span>
                 <AppLink
@@ -68,8 +58,8 @@ export function ContactPage() {
                 </AppLink>
               </li>
               <li>
-                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
-                  Dirección
+                <span className="block text-small tracking-[0.14em] text-ferresa-muted uppercase">
+                  Medellín
                 </span>
                 <p className="mt-1 text-ferresa-ink">
                   {company.contact.address ??
@@ -77,13 +67,13 @@ export function ContactPage() {
                 </p>
               </li>
               <li>
-                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                <span className="block text-small tracking-[0.14em] text-ferresa-muted uppercase">
                   Horario
                 </span>
                 <p className="mt-1 text-ferresa-ink">{company.businessHours}</p>
               </li>
               <li>
-                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                <span className="block text-small tracking-[0.14em] text-ferresa-muted uppercase">
                   Ciudades atendidas
                 </span>
                 <p className="mt-1 text-ferresa-ink">{company.serviceCities.join(' y ')}</p>
@@ -92,7 +82,7 @@ export function ContactPage() {
 
             {mapsEmbed ? (
               <div className="space-y-3">
-                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                <span className="block text-small tracking-[0.14em] text-ferresa-muted uppercase">
                   Google Maps
                 </span>
                 <div className="overflow-hidden border border-ferresa-line bg-ferresa-surface-muted">
@@ -127,10 +117,6 @@ export function ContactPage() {
                 Ver ubicación en Google Maps
               </AppLink>
             ) : null}
-
-            <p className="text-small text-ferresa-subtle">
-              Cobertura actual: {company.serviceCities.join(' y ')}.
-            </p>
           </aside>
         </Reveal>
       </Container>

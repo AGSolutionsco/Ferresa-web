@@ -27,7 +27,7 @@ export const pageSeo = {
   services: {
     title: `Servicios | Ferresa — ${cities}`,
     description:
-      'Fabricación, personalización e instalación de mobiliario para espacios habitacionales y comerciales en Medellín y Barranquilla.',
+      'Fabricación, personalización e instalación de mobiliario para espacios residenciales y comerciales en Medellín y Barranquilla.',
   },
   about: {
     title: `Nosotros | Ferresa — ${cities}`,

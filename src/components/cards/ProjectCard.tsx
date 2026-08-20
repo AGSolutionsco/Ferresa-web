@@ -50,7 +50,6 @@ export function ProjectCard({
             featured && 'sm:aspect-[5/4] lg:min-h-[28rem] lg:aspect-auto',
           )}
           imgClassName="img-zoom"
-          placeholderCaption="Fotografía pendiente"
         />
 
         <div className={cn('mt-4 space-y-2', featured && 'sm:mt-5')}>

@@ -26,7 +26,7 @@ export function AboutPreview() {
             {about.title}
           </h2>
           <div className="max-w-xl space-y-4">
-            {about.paragraphs.map((paragraph) => (
+            {about.paragraphs.slice(0, 2).map((paragraph) => (
               <p key={paragraph} className="text-body text-ferresa-muted">
                 {paragraph}
               </p>
@@ -43,8 +43,7 @@ export function AboutPreview() {
             width={1000}
             height={1250}
             loading="lazy"
-            className="min-h-[20rem] sm:min-h-[24rem] lg:min-h-[34rem] lg:aspect-auto"
-            placeholderCaption="Fotografía pendiente"
+            className="min-h-[18rem] sm:min-h-[22rem] lg:min-h-[32rem] lg:aspect-auto"
           />
         </Reveal>
 
@@ -53,7 +52,7 @@ export function AboutPreview() {
             <dl className="grid gap-6 sm:grid-cols-3">
               {about.highlights.map((item) => (
                 <div key={item.label} className="border-t border-ferresa-line pt-5">
-                  <dt className="text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                  <dt className="text-small tracking-[0.14em] text-ferresa-muted uppercase">
                     {item.label}
                   </dt>
                   <dd className="mt-3 font-display text-[1.55rem] leading-tight text-ferresa-ink">

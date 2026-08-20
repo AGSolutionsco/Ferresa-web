@@ -56,7 +56,6 @@ export function AboutPage() {
             height={1250}
             loading="lazy"
             className="min-h-[18rem] sm:min-h-[24rem] lg:aspect-auto lg:min-h-[28rem]"
-            placeholderCaption="Fotografía pendiente"
           />
         </Reveal>
       </Container>
@@ -81,7 +80,7 @@ export function AboutPage() {
           <dl className="mt-14 grid gap-6 sm:grid-cols-3">
             {about.highlights.map((item) => (
               <div key={item.label} className="border-t border-ferresa-line pt-5">
-                <dt className="text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                <dt className="text-small tracking-[0.14em] text-ferresa-muted uppercase">
                   {item.label}
                 </dt>
                 <dd className="mt-3 font-display text-[1.55rem]">{item.value}</dd>
@@ -132,7 +131,7 @@ export function AboutPage() {
           ))}
         </ol>
         <Button to="/contacto" variant="primary" className="mt-10">
-          Solicitar cotización
+          Cotizar mi proyecto
         </Button>
       </Section>
     </>

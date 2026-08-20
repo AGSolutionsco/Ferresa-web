@@ -47,6 +47,8 @@ export function quoteFormMessage(input: {
     '',
     input.description,
     '',
+    `Mi WhatsApp: ${input.phone}`,
+    '',
     'Me gustaría recibir información y una cotización.',
   ].join('\n')
 }

@@ -28,7 +28,8 @@ const initialValues: FormValues = {
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {}
   if (!values.name.trim()) errors.name = 'Ingresa tu nombre.'
-  if (!values.phone.trim()) errors.phone = 'Ingresa tu WhatsApp o teléfono.'
+  const phoneDigits = values.phone.replace(/\D/g, '')
+  if (phoneDigits.length < 7) errors.phone = 'Ingresa un WhatsApp válido.'
   if (!values.city.trim()) errors.city = 'Ingresa tu ciudad.'
   if (!values.projectType) errors.projectType = 'Selecciona un tipo de proyecto.'
   if (!values.description.trim()) {
@@ -51,6 +52,10 @@ export function ContactForm() {
     if (Object.keys(nextErrors).length > 0) {
       setState('error')
       setWhatsappHref(null)
+      const firstId = Object.keys(nextErrors)[0]
+      window.requestAnimationFrame(() => {
+        document.getElementById(firstId)?.focus()
+      })
       return
     }
 
@@ -70,6 +75,7 @@ export function ContactForm() {
 
     setWhatsappHref(href)
     setState('ready')
+    window.open(href, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -165,8 +171,11 @@ export function ContactForm() {
         </div>
 
         <Button type="submit" variant="primary">
-          Preparar mensaje para WhatsApp
+          Continuar en WhatsApp
         </Button>
+        <p className="text-small text-ferresa-muted">
+          Al continuar, se abrirá WhatsApp con tu mensaje listo para enviar.
+        </p>
       </form>
 
       <div id="form-status" aria-live="polite">
@@ -198,7 +207,7 @@ export function ContactForm() {
 
 function fieldClass(hasError: boolean) {
   return cn(
-    'mt-2 w-full rounded-[var(--radius-md)] border bg-ferresa-surface px-3.5 py-3 text-body text-ferresa-ink transition-ferresa',
+    'mt-2 min-h-11 w-full rounded-[var(--radius-md)] border bg-ferresa-surface px-3.5 py-3 text-body text-ferresa-ink transition-ferresa',
     'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ferresa-focus',
     hasError ? 'border-red-600' : 'border-ferresa-line hover:border-ferresa-ink/30',
   )
@@ -230,7 +239,12 @@ function Field({
   return (
     <div>
       <label htmlFor={id} className="text-small font-medium text-ferresa-ink">
-        {label} {required ? <span className="text-ferresa-muted">*</span> : null}
+                {label}{' '}
+                {required ? (
+                  <span className="text-ferresa-muted">
+                    *<span className="sr-only"> (obligatorio)</span>
+                  </span>
+                ) : null}
       </label>
       <input
         id={id}

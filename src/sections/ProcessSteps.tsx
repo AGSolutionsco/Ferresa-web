@@ -3,9 +3,7 @@ import { processSteps } from '@/data/process'
 import { Button } from '@/components/ui/Button'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { AppLink } from '@/components/ui/Link'
 import { Reveal } from '@/components/ui/Reveal'
-import { generateWhatsAppLink } from '@/utils/whatsapp'
 import { cn } from '@/utils/cn'
 
 /**
@@ -13,7 +11,6 @@ import { cn } from '@/utils/cn'
  */
 export function ProcessSteps() {
   const { process: content } = homeContent
-  const whatsappHref = generateWhatsAppLink(content.whatsappCta.message)
 
   return (
     <Section
@@ -78,19 +75,10 @@ export function ProcessSteps() {
       </Reveal>
 
       <Reveal delay={120}>
-        <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+        <div className="mt-12">
           <Button to={content.primaryCta.to} variant="primary">
             {content.primaryCta.label}
           </Button>
-          <AppLink
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            underline
-            className="text-small font-medium text-ferresa-muted hover:text-ferresa-ink"
-          >
-            {content.whatsappCta.label}
-          </AppLink>
         </div>
       </Reveal>
     </Section>

@@ -16,7 +16,7 @@ export function ServiceCard({ service, className, index }: ServiceCardProps) {
       )}
     >
       {typeof index === 'number' ? (
-        <p className="text-small font-medium tracking-[0.14em] text-ferresa-subtle uppercase">
+        <p className="text-small font-medium tracking-[0.14em] text-ferresa-muted uppercase">
           {String(index + 1).padStart(2, '0')}
         </p>
       ) : null}

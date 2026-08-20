@@ -30,8 +30,8 @@ export function NotFoundPage({ variant = 'generic' }: NotFoundPageProps) {
             <Button to="/" variant="primary">
               Ir al inicio
             </Button>
-            <Button to="/proyectos" variant="secondary">
-              Ver proyectos
+            <Button to="/servicios" variant="secondary">
+              Ver soluciones
             </Button>
             <Button to="/contacto" variant="ghost">
               Contacto

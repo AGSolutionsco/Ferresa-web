@@ -13,7 +13,7 @@ export function WhatsAppButton({
   message = defaultWhatsAppMessage,
   className,
   floating = true,
-  label = 'Escribir por WhatsApp',
+  label = 'Cotizar por WhatsApp',
 }: WhatsAppButtonProps) {
   const href = generateWhatsAppLink(message)
 
@@ -41,7 +41,7 @@ export function WhatsAppButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={label}
+      aria-label={`${label}. Se abre en una pestaña nueva`}
       title={label}
       className={cn(
         'fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-50 inline-flex size-14 items-center justify-center rounded-full bg-[#1f5c45] text-white shadow-lift',

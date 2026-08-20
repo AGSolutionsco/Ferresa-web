@@ -35,9 +35,9 @@ Copia `.env.example` a `.env`.
 
 ## Fases
 
-1–5 hechas · **6 — Contenido real + refinamiento visual** hecha · 7+ pendientes (SEO avanzado, QA, deploy)
+1–6 hechas · **7 — Auditoría UX/QA/CRO** hecha · 8+ pendientes (SEO avanzado, deploy)
 
-Docs: `docs/FASE-3.md`, `docs/FASE-4.md`, `docs/FASE-5.md`, `docs/FASE-6.md`.
+Docs: `docs/FASE-3.md`, `docs/FASE-4.md`, `docs/FASE-5.md`, `docs/FASE-6.md`, `docs/FASE-7.md`.
 
 ## Datos confirmados (FASE 5)
 

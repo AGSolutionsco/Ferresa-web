@@ -42,10 +42,20 @@ export function AppLink(props: AppLinkProps) {
     )
   }
 
-  const { href, children: _c, className: _cl, underline: _u, ...rest } = props as ExternalLink
+  const { href, children: _c, className: _cl, underline: _u, target, rel, ...rest } =
+    props as ExternalLink
   return (
-    <a href={href} className={classes} {...rest}>
+    <a
+      href={href}
+      target={target}
+      rel={target === '_blank' ? (rel ?? 'noopener noreferrer') : rel}
+      className={classes}
+      {...rest}
+    >
       {children}
+      {target === '_blank' ? (
+        <span className="sr-only"> (se abre en una pestaña nueva)</span>
+      ) : null}
     </a>
   )
 }

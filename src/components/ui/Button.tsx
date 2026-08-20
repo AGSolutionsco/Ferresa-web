@@ -19,9 +19,9 @@ const variantClasses: Record<ButtonVariant, string> = {
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: 'px-3.5 py-2 text-small',
-  md: 'px-5 py-2.5 text-button',
-  lg: 'px-6 py-3 text-button',
+  sm: 'min-h-11 px-3.5 py-2 text-small',
+  md: 'min-h-11 px-5 py-2.5 text-button',
+  lg: 'min-h-12 px-6 py-3 text-button',
 }
 
 const baseClasses =
@@ -91,7 +91,7 @@ export function Button(props: ButtonProps) {
       <a
         href={href}
         target={target}
-        rel={rel}
+        rel={target === '_blank' ? (rel ?? 'noopener noreferrer') : rel}
         download={download}
         hrefLang={hrefLang}
         media={media}
@@ -109,6 +109,9 @@ export function Button(props: ButtonProps) {
         className={classes}
       >
         {children}
+        {target === '_blank' ? (
+          <span className="sr-only"> (se abre en una pestaña nueva)</span>
+        ) : null}
       </a>
     )
   }

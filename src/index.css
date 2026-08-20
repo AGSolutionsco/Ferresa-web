@@ -12,7 +12,7 @@
   --color-ferresa-surface-muted: #eeece7;
   --color-ferresa-ink: #171717;
   --color-ferresa-ink-soft: #2a2a2a;
-  --color-ferresa-muted: #6a6a64;
+  --color-ferresa-muted: #5a5a54;
   --color-ferresa-subtle: #9a9a93;
   --color-ferresa-line: #ddd9d1;
   --color-ferresa-accent: #2f5d4a;
@@ -63,6 +63,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -83,6 +84,7 @@
   body {
     margin: 0;
     min-width: 320px;
+    overflow-x: clip;
     background: var(--color-ferresa-canvas);
     color: var(--color-ferresa-ink);
     font-family: var(--font-sans);

@@ -77,7 +77,7 @@ export function Header() {
       )}
     >
       <Container className="flex h-[4.25rem] items-center justify-between gap-4 lg:h-[4.75rem]">
-        <Logo />
+        <Logo className="shrink-0" />
 
         <nav aria-label="Principal" className="hidden items-center gap-0.5 lg:flex">
           {mainNavigation.map((item) => (
@@ -99,14 +99,10 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Button
-            to="/contacto"
-            variant="primary"
-            size="sm"
-            className="hidden sm:inline-flex"
-          >
-            Cotizar proyecto
+        <div className="flex shrink-0 items-center gap-2">
+          <Button to="/contacto" variant="primary" size="sm">
+            <span className="sm:hidden">Cotizar</span>
+            <span className="hidden sm:inline">Cotizar mi proyecto</span>
           </Button>
 
           <IconButton
@@ -172,7 +168,7 @@ export function Header() {
           </nav>
 
           <Button to="/contacto" variant="primary" className="w-full">
-            Cotizar proyecto
+            Cotizar mi proyecto
           </Button>
 
           <p className="text-small text-ferresa-muted">
