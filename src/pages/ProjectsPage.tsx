@@ -1,22 +1,26 @@
 import { pageSeo } from '@/data/seo'
+import { homeContent } from '@/data/home'
 import { getPublishedProjects } from '@/data/projects'
 import { usePageSeo } from '@/hooks/usePageSeo'
 import { PageHero } from '@/components/layout/PageShell'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { ProjectCard } from '@/components/cards/ProjectCard'
+import { EmptyState } from '@/components/ui/EmptyState'
 import { Section } from '@/components/ui/Section'
+import { Reveal } from '@/components/ui/Reveal'
 
 export function ProjectsPage() {
   usePageSeo(pageSeo.projects.title, pageSeo.projects.description)
   const items = getPublishedProjects()
+  const { featuredProjects: content } = homeContent
 
   return (
     <>
       <PageHero
         eyebrow="Portafolio"
         title="Nuestros proyectos"
-        description="Proyectos de mobiliario personalizado diseñados, fabricados e instalados por Ferresa."
+        description="Proyectos de mobiliario personalizado fabricados e instalados por Ferresa."
       />
 
       <Container className="py-12 sm:py-16 lg:py-20">
@@ -27,14 +31,19 @@ export function ProjectsPage() {
             ))}
           </div>
         ) : (
-          <div className="border border-dashed border-ferresa-line bg-ferresa-surface px-6 py-14 text-center sm:px-10">
-            <p className="text-body text-ferresa-muted">
-              Estamos preparando nuestro portafolio de proyectos.
-            </p>
-            <Button to="/contacto" variant="secondary" className="mt-6">
-              Cuéntanos tu proyecto
-            </Button>
-          </div>
+          <Reveal>
+            <EmptyState
+              eyebrow="Portafolio"
+              title={content.emptyTitle}
+              description={content.emptyMessage}
+              titleAs="h2"
+              action={
+                <Button to="/contacto" variant="secondary">
+                  Cuéntanos tu proyecto
+                </Button>
+              }
+            />
+          </Reveal>
         )}
       </Container>
 

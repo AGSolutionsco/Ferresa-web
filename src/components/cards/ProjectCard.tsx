@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import type { Project } from '@/types'
 import { categories } from '@/data/categories'
 import { Badge } from '@/components/ui/Badge'
-import { Image } from '@/components/ui/Image'
+import { MediaFrame } from '@/components/ui/Media'
+import { mediaSizes } from '@/utils/media'
 import { cn } from '@/utils/cn'
 
 type ProjectCardProps = {
@@ -35,44 +36,22 @@ export function ProjectCard({
     <article className={cn('group h-full', className)}>
       <Link
         to={`/proyectos/${project.slug}`}
-        className={cn(
-          'flex h-full flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ferresa-focus',
-        )}
+        className="flex h-full flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ferresa-focus"
       >
-        <div
+        <MediaFrame
+          src={cover}
+          alt={`Proyecto ${project.title}`}
+          aspect="photo"
+          sizes={featured ? mediaSizes.featured : mediaSizes.card}
+          width={featured ? 1200 : 800}
+          height={featured ? 1500 : 1000}
+          loading="lazy"
           className={cn(
-            'relative overflow-hidden bg-ferresa-surface-muted',
-            featured
-              ? 'aspect-[4/5] sm:aspect-[5/4] lg:min-h-[28rem] lg:aspect-auto'
-              : 'aspect-[4/5]',
+            featured && 'sm:aspect-[5/4] lg:min-h-[28rem] lg:aspect-auto',
           )}
-        >
-          {cover ? (
-            <Image
-              src={cover}
-              alt={`Proyecto ${project.title}`}
-              width={featured ? 1200 : 800}
-              height={featured ? 1500 : 1000}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full transition-ferresa duration-[450ms] group-hover:scale-[1.03]"
-            />
-          ) : (
-            <div
-              role="img"
-              aria-label={`Imagen pendiente del proyecto ${project.title}`}
-              className="flex h-full min-h-[16rem] w-full items-end bg-[linear-gradient(145deg,#eeece7_0%,#ddd9d1_50%,#cfc9be_100%)] p-4 transition-ferresa duration-[450ms] group-hover:scale-[1.02]"
-            >
-              <span className="text-small font-medium tracking-wide text-ferresa-muted uppercase">
-                Imagen pendiente
-              </span>
-            </div>
-          )}
-          <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-ferresa group-hover:opacity-100"
-            aria-hidden="true"
-          />
-        </div>
+          imgClassName="img-zoom"
+          placeholderCaption="Fotografía pendiente"
+        />
 
         <div className={cn('mt-4 space-y-2', featured && 'sm:mt-5')}>
           <div className="flex flex-wrap items-center gap-2">

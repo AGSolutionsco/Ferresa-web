@@ -5,12 +5,15 @@ import { PageHero } from '@/components/layout/PageShell'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { AppLink } from '@/components/ui/Link'
+import { Reveal } from '@/components/ui/Reveal'
 import { generateWhatsAppLink } from '@/utils/whatsapp'
 import { ContactForm } from './ContactForm'
 
 export function ContactPage() {
   usePageSeo(pageSeo.contact.title, pageSeo.contact.description)
   const whatsappHref = generateWhatsAppLink()
+  const mapsEmbed = company.flags.showMaps ? company.contact.mapsEmbedUrl : undefined
+  const mapsUrl = company.flags.showMaps ? company.contact.mapsUrl : undefined
 
   return (
     <>
@@ -20,8 +23,8 @@ export function ContactPage() {
         description="Completa el formulario y continúa por WhatsApp para recibir información y una cotización. WhatsApp es nuestro canal principal."
       />
 
-      <Container className="grid gap-12 py-12 sm:py-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16 lg:py-20">
-        <div className="space-y-6">
+      <Container className="grid gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16 lg:py-20">
+        <Reveal className="space-y-8">
           <Button
             href={whatsappHref}
             target="_blank"
@@ -32,79 +35,104 @@ export function ContactPage() {
             Cotizar por WhatsApp
           </Button>
           <ContactForm />
-        </div>
+        </Reveal>
 
-        <aside className="space-y-6 lg:pt-2">
-          <h2 className="text-h3">Información de contacto</h2>
-          <ul className="space-y-4 text-body text-ferresa-muted">
-            <li>
-              <span className="block text-small tracking-wide text-ferresa-subtle uppercase">
-                Canal principal
-              </span>
-              <Button
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="secondary"
-                className="mt-2"
-              >
-                Abrir WhatsApp
-              </Button>
-            </li>
-            <li>
-              <span className="block text-small tracking-wide text-ferresa-subtle uppercase">
-                Instagram
-              </span>
+        <Reveal delay={80}>
+          <aside className="space-y-8 border border-ferresa-line bg-ferresa-surface p-6 sm:p-8 lg:sticky lg:top-28">
+            <h2 className="text-h3">Información de contacto</h2>
+            <ul className="space-y-6 text-body text-ferresa-muted">
+              <li>
+                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                  WhatsApp
+                </span>
+                <AppLink
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 block text-ferresa-ink hover:text-ferresa-accent"
+                >
+                  {company.whatsapp.display}
+                </AppLink>
+              </li>
+              <li>
+                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                  Instagram
+                </span>
+                <AppLink
+                  href={company.social.instagram.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 text-ferresa-ink hover:text-ferresa-accent"
+                >
+                  {company.social.instagram.handle}
+                </AppLink>
+              </li>
+              <li>
+                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                  Dirección
+                </span>
+                <p className="mt-1 text-ferresa-ink">
+                  {company.contact.address ??
+                    `${company.primaryLocation.city}, ${company.primaryLocation.country}`}
+                </p>
+              </li>
+              <li>
+                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                  Horario
+                </span>
+                <p className="mt-1 text-ferresa-ink">{company.businessHours}</p>
+              </li>
+              <li>
+                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                  Ciudades atendidas
+                </span>
+                <p className="mt-1 text-ferresa-ink">{company.serviceCities.join(' y ')}</p>
+              </li>
+            </ul>
+
+            {mapsEmbed ? (
+              <div className="space-y-3">
+                <span className="block text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                  Google Maps
+                </span>
+                <div className="overflow-hidden border border-ferresa-line bg-ferresa-surface-muted">
+                  <iframe
+                    title={`Ubicación de ${company.name} en ${company.primaryLocation.city}`}
+                    src={mapsEmbed}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="aspect-[4/3] w-full border-0"
+                  />
+                </div>
+                {mapsUrl ? (
+                  <AppLink
+                    href={mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    underline
+                    className="text-small text-ferresa-ink"
+                  >
+                    Abrir en Google Maps
+                  </AppLink>
+                ) : null}
+              </div>
+            ) : mapsUrl ? (
               <AppLink
-                href={company.social.instagram.href}
+                href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 underline
                 className="text-ferresa-ink"
               >
-                {company.social.instagram.handle}
+                Ver ubicación en Google Maps
               </AppLink>
-            </li>
-            <li>
-              <span className="block text-small tracking-wide text-ferresa-subtle uppercase">
-                Dirección
-              </span>
-              <p className="text-ferresa-ink">
-                {company.contact.address ??
-                  `${company.primaryLocation.city}, ${company.primaryLocation.country}`}
-              </p>
-            </li>
-            <li>
-              <span className="block text-small tracking-wide text-ferresa-subtle uppercase">
-                Horario
-              </span>
-              <p className="text-ferresa-ink">{company.businessHours}</p>
-            </li>
-            <li>
-              <span className="block text-small tracking-wide text-ferresa-subtle uppercase">
-                Ciudades atendidas
-              </span>
-              <p className="text-ferresa-ink">{company.serviceCities.join(' y ')}</p>
-            </li>
-            {company.flags.showMaps && company.contact.mapsUrl ? (
-              <li>
-                <AppLink
-                  href={company.contact.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  underline
-                  className="text-ferresa-ink"
-                >
-                  Ver ubicación en Google Maps
-                </AppLink>
-              </li>
             ) : null}
-          </ul>
-          <p className="text-small text-ferresa-subtle">
-            Actualmente no atendemos el resto del país. Cobertura: Medellín y
-            Barranquilla.
-          </p>
-        </aside>
+
+            <p className="text-small text-ferresa-subtle">
+              Cobertura actual: {company.serviceCities.join(' y ')}.
+            </p>
+          </aside>
+        </Reveal>
       </Container>
     </>
   )

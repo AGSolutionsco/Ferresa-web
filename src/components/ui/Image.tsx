@@ -23,7 +23,7 @@ export function Image({
       alt={alt ?? ''}
       loading={loading}
       decoding={decoding}
-      className={cn(cover && 'object-cover', className)}
+      className={cn(cover && 'h-full w-full object-cover object-center', className)}
       {...props}
     />
   )
@@ -53,12 +53,12 @@ export function DevImagePlaceholder({
       role="img"
       aria-label={label}
       className={cn(
-        'flex items-end bg-ferresa-surface-muted p-4',
+        'media-placeholder relative flex items-end p-4',
         aspectClasses[aspect],
         className,
       )}
     >
-      <span className="text-small font-medium tracking-wide text-ferresa-muted uppercase">
+      <span className="relative z-10 text-[0.7rem] font-medium tracking-[0.16em] text-ferresa-muted/80 uppercase">
         {label}
       </span>
     </div>

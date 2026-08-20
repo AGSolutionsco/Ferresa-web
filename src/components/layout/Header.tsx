@@ -10,14 +10,23 @@ import { cn } from '@/utils/cn'
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const panelId = useId()
   const closeButtonRef = useRef<HTMLButtonElement>(null)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setOpen(false)
   }, [location.pathname])
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -30,6 +39,26 @@ export function Header() {
       if (event.key === 'Escape') {
         setOpen(false)
         menuButtonRef.current?.focus()
+        return
+      }
+
+      if (event.key !== 'Tab' || !panelRef.current) return
+
+      const focusable = [
+        ...panelRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled])',
+        ),
+      ]
+      if (focusable.length === 0) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
       }
     }
 
@@ -41,11 +70,16 @@ export function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ferresa-line/80 bg-ferresa-canvas/90 backdrop-blur-md">
-      <Container className="flex h-16 items-center justify-between gap-4 lg:h-[4.25rem]">
+    <header
+      className={cn(
+        'sticky top-0 z-40 border-b bg-ferresa-canvas/90 backdrop-blur-md transition-ferresa',
+        scrolled ? 'border-ferresa-line shadow-soft' : 'border-ferresa-line/80',
+      )}
+    >
+      <Container className="flex h-[4.25rem] items-center justify-between gap-4 lg:h-[4.75rem]">
         <Logo />
 
-        <nav aria-label="Principal" className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Principal" className="hidden items-center gap-0.5 lg:flex">
           {mainNavigation.map((item) => (
             <NavLink
               key={item.href}
@@ -53,10 +87,10 @@ export function Header() {
               end={item.href === '/'}
               className={({ isActive }) =>
                 cn(
-                  'rounded-[var(--radius-md)] px-3 py-2 text-nav text-ferresa-muted transition-ferresa',
+                  'relative rounded-[var(--radius-md)] px-3.5 py-2 text-nav tracking-[0.01em] text-ferresa-muted transition-ferresa',
                   'hover:text-ferresa-ink',
                   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ferresa-focus',
-                  isActive && 'text-ferresa-ink',
+                  isActive && 'text-ferresa-ink after:absolute after:inset-x-3.5 after:bottom-1 after:h-px after:bg-ferresa-ink',
                 )
               }
             >
@@ -88,19 +122,20 @@ export function Header() {
         </div>
       </Container>
 
-        <div
+      <div
+        ref={panelRef}
         id={panelId}
         className={cn(
           'overflow-hidden border-t border-ferresa-line bg-ferresa-canvas lg:hidden',
           'transition-[max-height,opacity] duration-[450ms] ease-[var(--ease-out-soft)]',
-          open ? 'max-h-[calc(100dvh-4rem)] opacity-100' : 'max-h-0 opacity-0',
+          open ? 'max-h-[calc(100dvh-4.25rem)] opacity-100' : 'max-h-0 opacity-0',
         )}
         aria-hidden={!open}
         inert={!open ? true : undefined}
       >
-        <Container className="flex flex-col gap-6 py-6">
+        <Container className="flex flex-col gap-8 py-8">
           <div className="flex items-center justify-between">
-            <p className="text-small tracking-[0.12em] text-ferresa-muted uppercase">
+            <p className="text-small tracking-[0.16em] text-ferresa-muted uppercase">
               Menú
             </p>
             <IconButton
@@ -123,10 +158,10 @@ export function Header() {
                 end={item.href === '/'}
                 className={({ isActive }) =>
                   cn(
-                    'rounded-[var(--radius-md)] px-3 py-3 text-lg text-ferresa-ink transition-ferresa',
-                    'hover:bg-ferresa-surface-muted',
+                    'rounded-[var(--radius-md)] px-1 py-3 font-display text-[1.75rem] leading-none text-ferresa-ink transition-ferresa',
+                    'hover:text-ferresa-accent',
                     'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ferresa-focus',
-                    isActive && 'bg-ferresa-surface-muted',
+                    isActive && 'text-ferresa-accent',
                   )
                 }
                 onClick={() => setOpen(false)}

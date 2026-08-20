@@ -2,10 +2,11 @@ import { homeContent } from '@/data/home'
 import { getPublishedTestimonials } from '@/data/testimonials'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { Reveal } from '@/components/ui/Reveal'
 
 /**
  * Testimonios — solo con contenido real publicado.
- * Si no hay ítems, no inventa reseñas (estructura lista en data).
+ * Si no hay ítems, no se muestra la sección (sin reseñas inventadas).
  */
 export function Testimonials() {
   const { testimonials: content } = homeContent
@@ -22,13 +23,15 @@ export function Testimonials() {
       aria-labelledby="testimonials-heading"
       className="border-b border-ferresa-line"
     >
-      <SectionHeading
-        eyebrow={content.eyebrow}
-        title={content.title}
-        description={content.description}
-        titleAs="h2"
-        titleId="testimonials-heading"
-      />
+      <Reveal>
+        <SectionHeading
+          eyebrow={content.eyebrow}
+          title={content.title}
+          description={content.description}
+          titleAs="h2"
+          titleId="testimonials-heading"
+        />
+      </Reveal>
       <ul className="mt-12 grid list-none gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (
           <li

@@ -1,5 +1,6 @@
 import { useState, type FormEvent, type HTMLAttributes } from 'react'
 import { quoteProjectTypes } from '@/data/quote'
+import { company } from '@/data/company'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/utils/cn'
 import { generateWhatsAppLink, quoteFormMessage } from '@/utils/whatsapp'
@@ -85,7 +86,7 @@ export function ContactForm() {
         />
         <Field
           id="phone"
-          label="WhatsApp / teléfono"
+          label="WhatsApp"
           error={errors.phone}
           value={values.phone}
           onChange={(value) => setValues((prev) => ({ ...prev, phone: value }))}
@@ -100,8 +101,14 @@ export function ContactForm() {
           value={values.city}
           onChange={(value) => setValues((prev) => ({ ...prev, city: value }))}
           autoComplete="address-level2"
+          list="contact-cities"
           required
         />
+        <datalist id="contact-cities">
+          {company.serviceCities.map((city) => (
+            <option key={city} value={city} />
+          ))}
+        </datalist>
 
         <div>
           <label htmlFor="projectType" className="text-small font-medium text-ferresa-ink">
@@ -169,7 +176,7 @@ export function ContactForm() {
           </p>
         ) : null}
         {state === 'ready' && whatsappHref ? (
-          <div className="border border-ferresa-line bg-ferresa-surface-muted p-5">
+          <div className="border border-ferresa-line bg-ferresa-surface-muted p-5 sm:p-6">
             <p className="text-body text-ferresa-ink">
               Tu mensaje está listo. Continúa en WhatsApp para enviarlo a Ferresa.
             </p>
@@ -191,9 +198,9 @@ export function ContactForm() {
 
 function fieldClass(hasError: boolean) {
   return cn(
-    'mt-2 w-full rounded-[var(--radius-md)] border bg-ferresa-surface px-3 py-2.5 text-body text-ferresa-ink transition-ferresa',
+    'mt-2 w-full rounded-[var(--radius-md)] border bg-ferresa-surface px-3.5 py-3 text-body text-ferresa-ink transition-ferresa',
     'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ferresa-focus',
-    hasError ? 'border-red-600' : 'border-ferresa-line',
+    hasError ? 'border-red-600' : 'border-ferresa-line hover:border-ferresa-ink/30',
   )
 }
 
@@ -206,6 +213,7 @@ type FieldProps = {
   required?: boolean
   autoComplete?: string
   inputMode?: HTMLAttributes<HTMLInputElement>['inputMode']
+  list?: string
 }
 
 function Field({
@@ -217,6 +225,7 @@ function Field({
   required,
   autoComplete,
   inputMode,
+  list,
 }: FieldProps) {
   return (
     <div>
@@ -230,6 +239,7 @@ function Field({
         required={required}
         autoComplete={autoComplete}
         inputMode={inputMode}
+        list={list}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
         className={fieldClass(Boolean(error))}

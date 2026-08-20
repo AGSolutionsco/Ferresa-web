@@ -41,6 +41,7 @@ export const categoryCatalog = {
 
 /**
  * Categorías de Home / puente comercial — solo confirmadas.
+ * Imágenes: public/images/categories/{slug}.jpg (cuando existan).
  */
 export const portfolioCategories: PortfolioCategory[] = [
   {
@@ -52,7 +53,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       'Cocinas personalizadas según medidas, materiales y espacio disponible.',
     imageSrc: null,
     imageAlt: 'Categoría Cocinas — fotografía pendiente',
-    href: '/servicios',
+    href: '/servicios#cocinas',
     featured: true,
   },
   {
@@ -63,7 +64,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     description: 'Closets adaptados al espacio y a las necesidades de uso.',
     imageSrc: null,
     imageAlt: 'Categoría Closets — fotografía pendiente',
-    href: '/servicios',
+    href: '/servicios#closets',
   },
   {
     id: 'centros-de-entretenimiento',
@@ -74,7 +75,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       'Centros de entretenimiento diseñados para el ambiente y el uso diario.',
     imageSrc: null,
     imageAlt: 'Categoría Centros de entretenimiento — fotografía pendiente',
-    href: '/servicios',
+    href: '/servicios#centros-de-entretenimiento',
   },
   {
     id: 'recibidores',
@@ -84,7 +85,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     description: 'Recibidores funcionales y a medida para el ingreso.',
     imageSrc: null,
     imageAlt: 'Categoría Recibidores — fotografía pendiente',
-    href: '/servicios',
+    href: '/servicios#recibidores',
   },
   {
     id: 'espejos',
@@ -94,6 +95,6 @@ export const portfolioCategories: PortfolioCategory[] = [
     description: 'Espejos adaptados al proyecto y al espacio.',
     imageSrc: null,
     imageAlt: 'Categoría Espejos — fotografía pendiente',
-    href: '/servicios',
+    href: '/servicios#espejos',
   },
 ]

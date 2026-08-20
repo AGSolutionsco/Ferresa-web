@@ -41,6 +41,8 @@ export const company: CompanyInfo = {
     address: 'Calle 50 #77B-47, Medellín',
     mapsUrl:
       'https://www.google.com/maps/search/?api=1&query=Calle+50+%2377B-47%2C+Medell%C3%ADn%2C+Colombia',
+    mapsEmbedUrl:
+      'https://www.google.com/maps?q=Calle+50+%2377B-47,+Medell%C3%ADn,+Colombia&z=16&output=embed',
   },
   flags: {
     showTestimonials: false,

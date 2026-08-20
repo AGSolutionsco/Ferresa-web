@@ -26,10 +26,10 @@
   --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
 
   /* Escala tipográfica */
-  --text-display: clamp(2.75rem, 6vw, 4.5rem);
-  --text-h1: clamp(2.25rem, 4.5vw, 3.5rem);
-  --text-h2: clamp(1.75rem, 3vw, 2.5rem);
-  --text-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --text-display: clamp(2.6rem, 7.2vw, 4.75rem);
+  --text-h1: clamp(2.15rem, 4.6vw, 3.5rem);
+  --text-h2: clamp(1.7rem, 3.1vw, 2.55rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.55rem);
   --text-body: 1.0625rem;
   --text-small: 0.875rem;
   --text-button: 0.9375rem;
@@ -186,6 +186,38 @@
   .reveal-up {
     animation: ferresa-reveal-up var(--duration-slow) var(--ease-out-soft) both;
   }
+
+  .media-placeholder {
+    background: linear-gradient(158deg, #f1efe9 0%, #e6e2da 46%, #d4cec4 100%);
+  }
+
+  .media-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 1.15rem;
+    border: 1px solid rgb(23 23 23 / 0.08);
+    pointer-events: none;
+  }
+
+  .media-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgb(23 23 23 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(23 23 23 / 0.045) 1px, transparent 1px);
+    background-size: min(24%, 6.5rem) min(24%, 6.5rem);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .img-zoom {
+    transition: transform var(--duration-slow) var(--ease-out-soft);
+  }
+
+  .group:hover .img-zoom {
+    transform: scale(1.035);
+  }
 }
 
 @keyframes ferresa-reveal-up {
@@ -202,5 +234,11 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal-up {
     animation: none;
+  }
+
+  .img-zoom,
+  .group:hover .img-zoom {
+    transform: none;
+    transition: none;
   }
 }

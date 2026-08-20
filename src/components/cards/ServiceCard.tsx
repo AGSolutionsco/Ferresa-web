@@ -11,7 +11,7 @@ export function ServiceCard({ service, className, index }: ServiceCardProps) {
   return (
     <article
       className={cn(
-        'border border-ferresa-line bg-ferresa-surface p-6 transition-ferresa hover:border-ferresa-ink/30 hover:shadow-soft sm:p-8',
+        'border border-ferresa-line bg-ferresa-surface p-6 transition-ferresa hover:-translate-y-0.5 hover:border-ferresa-ink/25 hover:shadow-soft sm:p-8',
         className,
       )}
     >

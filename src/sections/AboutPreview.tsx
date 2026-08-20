@@ -1,12 +1,13 @@
 import { homeContent } from '@/data/home'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
-import { Image } from '@/components/ui/Image'
+import { MediaFrame } from '@/components/ui/Media'
+import { Reveal } from '@/components/ui/Reveal'
+import { mediaSizes } from '@/utils/media'
 
 /**
- * Vista previa "Sobre Ferresa" — FASE 3.4
- * Contenido provisional del cliente, sin datos inventados.
- * Mobile: título → texto → imagen → CTA.
+ * Vista previa "Sobre Ferresa".
+ * Mobile: título → texto → imagen → datos → CTA.
  */
 export function AboutPreview() {
   const { about } = homeContent
@@ -16,9 +17,9 @@ export function AboutPreview() {
       aria-labelledby="about-preview-heading"
       className="border-b border-ferresa-line bg-ferresa-canvas"
     >
-      <Container className="grid gap-10 py-16 sm:gap-12 sm:py-20 lg:grid-cols-2 lg:items-center lg:gap-14 lg:py-28">
-        <div className="reveal-up space-y-5 lg:order-2">
-          <p className="text-small font-medium tracking-[0.14em] text-ferresa-muted uppercase">
+      <Container className="grid gap-10 py-16 sm:gap-12 sm:py-20 lg:grid-cols-2 lg:items-center lg:gap-16 lg:py-28">
+        <Reveal className="space-y-5 lg:order-2">
+          <p className="text-small font-medium tracking-[0.16em] text-ferresa-muted uppercase">
             {about.eyebrow}
           </p>
           <h2 id="about-preview-heading" className="text-h2 max-w-lg">
@@ -31,59 +32,38 @@ export function AboutPreview() {
               </p>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <div
-          className="reveal-up relative isolate min-h-[20rem] overflow-hidden bg-ferresa-surface-muted sm:min-h-[24rem] lg:order-1 lg:min-h-[32rem]"
-          style={{ animationDelay: '80ms' }}
-        >
-          {about.imageSrc ? (
-            <Image
-              src={about.imageSrc}
-              alt={about.imageAlt}
-              width={1000}
-              height={1250}
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 h-full w-full"
-            />
-          ) : (
-            <div
-              role="img"
-              aria-label={`${about.imageAlt} (placeholder de desarrollo)`}
-              className="absolute inset-0 flex items-end bg-[linear-gradient(160deg,#eeece7_0%,#ddd9d1_45%,#cfc9be_100%)] p-5 sm:p-6"
-            >
-              <span className="text-small font-medium tracking-wide text-ferresa-muted uppercase">
-                Fotografía real pendiente — public/images
-              </span>
-            </div>
-          )}
-        </div>
+        <Reveal delay={80} className="lg:order-1">
+          <MediaFrame
+            src={about.imageSrc}
+            alt={about.imageAlt}
+            aspect="portrait"
+            sizes={mediaSizes.about}
+            width={1000}
+            height={1250}
+            loading="lazy"
+            className="min-h-[20rem] sm:min-h-[24rem] lg:min-h-[34rem] lg:aspect-auto"
+            placeholderCaption="Fotografía pendiente"
+          />
+        </Reveal>
 
-        <div
-          className="reveal-up space-y-8 lg:order-3 lg:col-span-2 lg:grid lg:grid-cols-2 lg:items-end lg:gap-14"
-          style={{ animationDelay: '120ms' }}
-        >
+        <Reveal delay={120} className="space-y-8 lg:order-3 lg:col-span-2 lg:grid lg:grid-cols-2 lg:items-end lg:gap-16">
           <div className="space-y-4">
-            <dl className="grid gap-5 sm:grid-cols-3">
+            <dl className="grid gap-6 sm:grid-cols-3">
               {about.highlights.map((item) => (
-                <div key={item.label} className="border-t border-ferresa-line pt-4">
-                  <dt className="text-small tracking-wide text-ferresa-subtle uppercase">
+                <div key={item.label} className="border-t border-ferresa-line pt-5">
+                  <dt className="text-small tracking-[0.14em] text-ferresa-subtle uppercase">
                     {item.label}
                   </dt>
-                  <dd className="mt-2 font-display text-[1.35rem] leading-tight text-ferresa-ink">
+                  <dd className="mt-3 font-display text-[1.55rem] leading-tight text-ferresa-ink">
                     {item.value}
                   </dd>
                 </div>
               ))}
             </dl>
             {about.expansionNote ? (
-              <p className="text-small text-ferresa-subtle">
-                {about.expansionNote}
-                <span className="sr-only">
-                  . Expansión proyectada; no es una operación actual.
-                </span>
-              </p>
+              <p className="text-small text-ferresa-subtle">{about.expansionNote}</p>
             ) : null}
           </div>
 
@@ -92,7 +72,7 @@ export function AboutPreview() {
               {about.cta.label}
             </Button>
           </div>
-        </div>
+        </Reveal>
       </Container>
     </section>
   )

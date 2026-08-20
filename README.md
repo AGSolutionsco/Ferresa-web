@@ -33,11 +33,11 @@ Copia `.env.example` a `.env`.
 | `/contacto` | Cotización → WhatsApp |
 | `*` | 404 |
 
-Docs: `docs/FASE-3.md`, `docs/FASE-4.md`, `docs/FASE-5.md`.
-
 ## Fases
 
-1–4 hechas · **5 — Información real del cliente** hecha · 6+ pendientes (SEO avanzado, QA, deploy)
+1–5 hechas · **6 — Contenido real + refinamiento visual** hecha · 7+ pendientes (SEO avanzado, QA, deploy)
+
+Docs: `docs/FASE-3.md`, `docs/FASE-4.md`, `docs/FASE-5.md`, `docs/FASE-6.md`.
 
 ## Datos confirmados (FASE 5)
 

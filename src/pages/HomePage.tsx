@@ -12,7 +12,7 @@ import { pageSeo } from '@/data/seo'
 import { usePageSeo } from '@/hooks/usePageSeo'
 
 /**
- * Home completa — FASE 3.1 → 3.8
+ * Home — FASE 6
  * Testimonios/FAQ solo se renderizan si hay contenido publicado.
  */
 export function HomePage() {

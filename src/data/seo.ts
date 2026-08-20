@@ -14,7 +14,7 @@ export const pageSeo = {
   projects: {
     title: `Proyectos | Ferresa — ${cities}`,
     description:
-      'Conoce proyectos de mobiliario personalizado fabricados e instalados por Ferresa.',
+      'Portafolio de mobiliario personalizado fabricado e instalado por Ferresa en Medellín y Barranquilla.',
   },
   projectDetail: (projectTitle: string): PageSeo => ({
     title: `${projectTitle} | Proyectos Ferresa`,
@@ -27,7 +27,7 @@ export const pageSeo = {
   services: {
     title: `Servicios | Ferresa — ${cities}`,
     description:
-      'Fabricación, personalización e instalación de mobiliario para espacios habitacionales y comerciales.',
+      'Fabricación, personalización e instalación de mobiliario para espacios habitacionales y comerciales en Medellín y Barranquilla.',
   },
   about: {
     title: `Nosotros | Ferresa — ${cities}`,
@@ -36,7 +36,7 @@ export const pageSeo = {
   contact: {
     title: `Cotizar proyecto | Ferresa — ${cities}`,
     description:
-      'Solicita una cotización de mobiliario personalizado. WhatsApp es nuestro canal principal.',
+      'Solicita una cotización de mobiliario personalizado en Medellín o Barranquilla. WhatsApp es nuestro canal principal.',
   },
   notFound: {
     title: 'Página no encontrada | Ferresa',

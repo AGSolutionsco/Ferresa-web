@@ -24,7 +24,7 @@ export function similarProjectMessage(projectTitle: string): string {
 }
 
 export function categoryInterestMessage(categoryName: string): string {
-  return `Hola, Ferresa. Estoy interesado en ${categoryName} y quisiera conocer más información y solicitar una cotización.`
+  return `Hola, Ferresa. Estoy interesado en ${categoryName} y quisiera recibir información y una cotización.`
 }
 
 export function quoteFormMessage(input: {
@@ -43,10 +43,9 @@ export function quoteFormMessage(input: {
     '',
     `Estoy interesado en ${input.projectType}.`,
     '',
-    'Detalles de mi proyecto:',
-    input.description,
+    'Detalles:',
     '',
-    `Mi WhatsApp / teléfono: ${input.phone}`,
+    input.description,
     '',
     'Me gustaría recibir información y una cotización.',
   ].join('\n')

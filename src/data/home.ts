@@ -38,7 +38,7 @@ export const homeContent = {
     title: 'Soluciones para cada espacio',
     provisional: false,
     description:
-      'Trabajamos categorías confirmadas de mobiliario y ampliamos el catálogo a medida que el cliente incorpora nuevas líneas.',
+      'Cocinas, closets, centros de entretenimiento, recibidores y espejos, desarrollados a medida para cada espacio.',
     cta: {
       label: 'Ver todos los proyectos',
       to: '/proyectos',
@@ -48,8 +48,11 @@ export const homeContent = {
     eyebrow: 'Proyectos',
     title: 'Proyectos que hablan por nosotros',
     provisional: false,
-    description: 'Cuando incorporemos proyectos reales confirmados, aparecerán aquí.',
-    emptyMessage: 'Estamos preparando nuestro portafolio de proyectos reales.',
+    description:
+      'Cuando incorporemos proyectos reales confirmados, aparecerán aquí.',
+    emptyTitle: 'Portafolio en preparación',
+    emptyMessage:
+      'Estamos incorporando nuestro portafolio de proyectos reales. Si tienes una idea, cuéntanosla y te orientamos.',
     emptyCta: {
       label: 'Solicitar cotización',
       to: '/contacto',

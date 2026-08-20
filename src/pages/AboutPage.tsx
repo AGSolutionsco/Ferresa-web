@@ -8,9 +8,12 @@ import { usePageSeo } from '@/hooks/usePageSeo'
 import { PageHero } from '@/components/layout/PageShell'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
-import { Image } from '@/components/ui/Image'
+import { MediaFrame } from '@/components/ui/Media'
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { Reveal } from '@/components/ui/Reveal'
+import { ServiceCard } from '@/components/cards/ServiceCard'
+import { mediaSizes } from '@/utils/media'
 
 export function AboutPage() {
   usePageSeo(pageSeo.about.title, pageSeo.about.description)
@@ -28,8 +31,8 @@ export function AboutPage() {
         description={company.description}
       />
 
-      <Container className="grid gap-10 py-14 sm:py-16 lg:grid-cols-2 lg:items-start lg:gap-14 lg:py-20">
-        <div className="space-y-5">
+      <Container className="grid gap-10 py-14 sm:py-16 lg:grid-cols-2 lg:items-start lg:gap-16 lg:py-20">
+        <Reveal className="space-y-5">
           <h2 className="text-h2">Nuestra historia</h2>
           {about.paragraphs.map((paragraph) => (
             <p key={paragraph} className="text-body text-ferresa-muted">
@@ -41,83 +44,82 @@ export function AboutPage() {
               Razón social de origen: {company.legalName}.
             </p>
           ) : null}
-        </div>
+        </Reveal>
 
-        <div className="relative min-h-[18rem] overflow-hidden bg-ferresa-surface-muted sm:min-h-[22rem]">
-          {about.imageSrc ? (
-            <Image
-              src={about.imageSrc}
-              alt={about.imageAlt}
-              width={1000}
-              height={1250}
-              loading="lazy"
-              className="h-full min-h-[18rem] w-full sm:min-h-[22rem]"
-            />
-          ) : (
-            <div
-              role="img"
-              aria-label={`${about.imageAlt} (placeholder de desarrollo)`}
-              className="flex h-full min-h-[18rem] items-end bg-[linear-gradient(160deg,#eeece7,#cfc9be)] p-5 sm:min-h-[22rem]"
-            >
-              <span className="text-small font-medium tracking-wide text-ferresa-muted uppercase">
-                Fotografía pendiente
-              </span>
-            </div>
-          )}
-        </div>
+        <Reveal delay={80}>
+          <MediaFrame
+            src={about.imageSrc}
+            alt={about.imageAlt}
+            aspect="portrait"
+            sizes={mediaSizes.about}
+            width={1000}
+            height={1250}
+            loading="lazy"
+            className="min-h-[18rem] sm:min-h-[24rem] lg:aspect-auto lg:min-h-[28rem]"
+            placeholderCaption="Fotografía pendiente"
+          />
+        </Reveal>
       </Container>
 
       <Section tone="muted" padding="lg" className="border-y border-ferresa-line">
-        <SectionHeading
-          title="Qué hace Ferresa"
-          description="Desarrollamos proyectos de mobiliario personalizado con fabricación e instalación."
-          titleAs="h2"
-        />
+        <Reveal>
+          <SectionHeading
+            title="Qué hace Ferresa"
+            description="Desarrollamos proyectos de mobiliario personalizado con fabricación e instalación."
+            titleAs="h2"
+          />
+        </Reveal>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.id}
-              className="border border-ferresa-line bg-ferresa-surface p-6"
-            >
-              <h3 className="text-h3 text-[1.35rem]">{service.title}</h3>
-              <p className="mt-3 text-body text-ferresa-muted">{service.description}</p>
-            </article>
+          {services.map((service, index) => (
+            <Reveal key={service.id} delay={index * 40}>
+              <ServiceCard service={service} index={index} />
+            </Reveal>
           ))}
         </div>
 
-        <dl className="mt-12 grid gap-6 sm:grid-cols-3">
-          {about.highlights.map((item) => (
-            <div key={item.label} className="border-t border-ferresa-line pt-4">
-              <dt className="text-small tracking-wide text-ferresa-subtle uppercase">
-                {item.label}
-              </dt>
-              <dd className="mt-2 font-display text-[1.35rem]">{item.value}</dd>
-            </div>
-          ))}
-        </dl>
+        <Reveal>
+          <dl className="mt-14 grid gap-6 sm:grid-cols-3">
+            {about.highlights.map((item) => (
+              <div key={item.label} className="border-t border-ferresa-line pt-5">
+                <dt className="text-small tracking-[0.14em] text-ferresa-subtle uppercase">
+                  {item.label}
+                </dt>
+                <dd className="mt-3 font-display text-[1.55rem]">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
       </Section>
 
       <Section tone="light" padding="lg">
-        <SectionHeading title="Nuestro enfoque" titleAs="h2" />
+        <Reveal>
+          <SectionHeading title="Nuestro enfoque" titleAs="h2" />
+        </Reveal>
         <ul className="mt-10 grid list-none gap-8 sm:grid-cols-2">
           {diffs.map((item, index) => (
-            <li key={item.id} className="border-t border-ferresa-line pt-5">
-              <p className="font-display text-[1.5rem] text-ferresa-accent/70" aria-hidden="true">
-                {String(index + 1).padStart(2, '0')}
-              </p>
-              <h3 className="mt-2 text-h3 text-[1.3rem]">{item.title}</h3>
-              <p className="mt-2 text-body text-ferresa-muted">{item.description}</p>
+            <li key={item.id}>
+              <Reveal delay={index * 40}>
+                <div className="border-t border-ferresa-line pt-5">
+                  <p className="font-display text-[1.5rem] text-ferresa-accent/70" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <h3 className="mt-2 text-h3 text-[1.3rem]">{item.title}</h3>
+                  <p className="mt-2 text-body text-ferresa-muted">{item.description}</p>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ul>
       </Section>
 
       <Section tone="muted" padding="lg" className="border-t border-ferresa-line">
-        <SectionHeading
-          title="De la idea a la instalación"
-          description="Así acompañamos cada proyecto."
-          titleAs="h2"
-        />
+        <Reveal>
+          <SectionHeading
+            title="De la idea a la instalación"
+            description="Así acompañamos cada proyecto."
+            titleAs="h2"
+          />
+        </Reveal>
         <ol className="mt-10 grid list-none gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {processSteps.map((step) => (
             <li key={step.number}>

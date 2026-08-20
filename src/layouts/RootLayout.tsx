@@ -5,11 +5,19 @@ import { Header } from '@/components/layout/Header'
 import { WhatsAppButton } from '@/components/layout/WhatsAppButton'
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
 
   useEffect(() => {
+    if (hash) {
+      const id = decodeURIComponent(hash.replace('#', ''))
+      const frame = window.requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+      return () => window.cancelAnimationFrame(frame)
+    }
+
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-  }, [pathname])
+  }, [pathname, hash])
 
   return null
 }

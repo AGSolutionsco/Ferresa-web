@@ -108,6 +108,7 @@ export interface CompanyInfo {
     email?: string
     address?: string
     mapsUrl?: string
+    mapsEmbedUrl?: string
   }
   flags: {
     showTestimonials: boolean
