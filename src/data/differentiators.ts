@@ -21,7 +21,7 @@ export const differentiators: Differentiator[] = [
     id: 'servicio-integral',
     title: 'Servicio integral',
     description:
-      'Acompañamos el proyecto desde la cotización hasta la fabricación e instalación.',
+      'Acompañamos remodelaciones, construcciones y mobiliario a medida desde la cotización hasta la entrega.',
   },
   {
     id: 'aprovechamiento-espacio',

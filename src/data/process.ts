@@ -21,7 +21,7 @@ export const processSteps: ProcessStep[] = [
     number: '03',
     title: 'Desarrollamos la propuesta',
     description:
-      'Coordinamos una propuesta de mobiliario personalizado para tu proyecto.',
+      'Coordinamos una propuesta de remodelación, construcción o mobiliario a medida para tu proyecto.',
   },
   {
     number: '04',

@@ -5,11 +5,12 @@ import { PageHero } from '@/components/layout/PageShell'
 import { Container } from '@/components/ui/Container'
 import { AppLink } from '@/components/ui/Link'
 import { Reveal } from '@/components/ui/Reveal'
+import { PostSale } from '@/sections/PostSale'
 import { generateWhatsAppLink } from '@/utils/whatsapp'
 import { ContactForm } from './ContactForm'
 
 export function ContactPage() {
-  usePageSeo(pageSeo.contact.title, pageSeo.contact.description)
+  usePageSeo(pageSeo.contact)
   const whatsappHref = generateWhatsAppLink()
   const mapsEmbed = company.flags.showMaps ? company.contact.mapsEmbedUrl : undefined
   const mapsUrl = company.flags.showMaps ? company.contact.mapsUrl : undefined
@@ -21,6 +22,8 @@ export function ContactPage() {
         title="Cuéntanos tu proyecto"
         description="WhatsApp es nuestro canal principal. Completa el formulario y continúa con tu mensaje listo para enviar."
       />
+
+      <PostSale />
 
       <Container className="grid gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16 lg:py-20">
         <Reveal className="space-y-6">

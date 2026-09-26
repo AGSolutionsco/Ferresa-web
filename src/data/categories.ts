@@ -51,8 +51,8 @@ export const portfolioCategories: PortfolioCategory[] = [
     summary: 'Mobiliario de cocina a medida',
     description:
       'Cocinas personalizadas según medidas, materiales y espacio disponible.',
-    imageSrc: null,
-    imageAlt: 'Cocinas a medida Ferresa',
+    imageSrc: '/images/categories/cocinas.jpg',
+    imageAlt: 'Cocina a medida con isla, Ferresa',
     href: '/servicios#cocinas',
     featured: true,
   },
@@ -62,8 +62,8 @@ export const portfolioCategories: PortfolioCategory[] = [
     slug: 'closets',
     summary: 'Organización a medida',
     description: 'Closets adaptados al espacio y a las necesidades de uso.',
-    imageSrc: null,
-    imageAlt: 'Closets a medida Ferresa',
+    imageSrc: '/images/categories/closets.jpg',
+    imageAlt: 'Closet a medida con puertas de vidrio, Ferresa',
     href: '/servicios#closets',
   },
   {
@@ -73,8 +73,8 @@ export const portfolioCategories: PortfolioCategory[] = [
     summary: 'Salas y espacios de TV',
     description:
       'Centros de entretenimiento diseñados para el ambiente y el uso diario.',
-    imageSrc: null,
-    imageAlt: 'Centros de entretenimiento a medida Ferresa',
+    imageSrc: '/images/categories/centros-de-entretenimiento.jpg',
+    imageAlt: 'Centro de entretenimiento a medida, Ferresa',
     href: '/servicios#centros-de-entretenimiento',
   },
   {
@@ -83,8 +83,8 @@ export const portfolioCategories: PortfolioCategory[] = [
     slug: 'recibidores',
     summary: 'Primer impacto del hogar',
     description: 'Recibidores funcionales y a medida para el ingreso.',
-    imageSrc: null,
-    imageAlt: 'Recibidores a medida Ferresa',
+    imageSrc: '/images/categories/recibidores.jpg',
+    imageAlt: 'Recibidor a medida con espejo circular, Ferresa',
     href: '/servicios#recibidores',
   },
   {
@@ -93,8 +93,8 @@ export const portfolioCategories: PortfolioCategory[] = [
     slug: 'espejos',
     summary: 'Complementos a medida',
     description: 'Espejos adaptados al proyecto y al espacio.',
-    imageSrc: null,
-    imageAlt: 'Espejos a medida Ferresa',
+    imageSrc: '/images/categories/espejos.jpg',
+    imageAlt: 'Espejo a medida de piso a techo, Ferresa',
     href: '/servicios#espejos',
   },
 ]

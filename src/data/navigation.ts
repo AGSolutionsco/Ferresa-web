@@ -9,6 +9,12 @@ export const mainNavigation: NavItem[] = [
   { label: 'Contacto', href: '/contacto' },
 ]
 
+/** Enlaces legales del footer (no van en la navegación principal). */
+export const legalNav: NavItem[] = [
+  { label: 'Privacidad', href: '/privacidad' },
+  { label: 'Términos', href: '/terminos' },
+]
+
 /**
  * Rutas futuras — no presentadas en navegación.
  * Barranquilla ya es ciudad de operación; una landing dedicada sigue pendiente.

@@ -16,7 +16,7 @@ import { ServiceCard } from '@/components/cards/ServiceCard'
 import { mediaSizes } from '@/utils/media'
 
 export function AboutPage() {
-  usePageSeo(pageSeo.about.title, pageSeo.about.description)
+  usePageSeo(pageSeo.about)
   const { about } = homeContent
   const diffs = homeDifferentiatorIds
     .slice(0, 4)
@@ -64,7 +64,7 @@ export function AboutPage() {
         <Reveal>
           <SectionHeading
             title="Qué hace Ferresa"
-            description="Desarrollamos proyectos de mobiliario personalizado con fabricación e instalación."
+            description="Desarrollamos remodelaciones, construcciones y proyectos de mobiliario a medida, con fabricación e instalación cuando el proyecto lo requiere."
             titleAs="h2"
           />
         </Reveal>

@@ -11,13 +11,13 @@ export const services: Service[] = [
     id: 'diseno',
     title: 'Diseño del proyecto',
     description:
-      'Coordinamos el desarrollo de una propuesta de mobiliario personalizado según las necesidades, medidas y características de cada espacio.',
+      'Coordinamos el desarrollo de una propuesta para remodelaciones, construcciones y mobiliario a medida según las necesidades, medidas y características de cada espacio.',
   },
   {
     id: 'fabricacion',
     title: 'Fabricación',
     description:
-      'Fabricamos el mobiliario de acuerdo con las especificaciones aprobadas para cada proyecto.',
+      'Fabricamos el mobiliario a medida de acuerdo con las especificaciones aprobadas para cada proyecto.',
   },
   {
     id: 'personalizacion',
@@ -29,7 +29,7 @@ export const services: Service[] = [
     id: 'instalacion',
     title: 'Instalación',
     description:
-      'Realizamos la instalación del mobiliario: entrega de materiales, montaje, mano de obra y entrega final. El costo de instalación se incluye en la cotización.',
+      'Realizamos la instalación cuando el proyecto lo requiere: entrega de materiales, montaje, mano de obra y entrega final. El costo de instalación se incluye en la cotización.',
   },
   {
     id: 'logistica',

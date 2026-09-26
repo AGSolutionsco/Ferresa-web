@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { company } from '@/data/company'
-import { mainNavigation } from '@/data/navigation'
+import { legalNav, mainNavigation } from '@/data/navigation'
 import { Container } from '@/components/ui/Container'
 import { Logo } from '@/components/ui/Logo'
 import { AppLink } from '@/components/ui/Link'
@@ -116,11 +116,27 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-small text-ferresa-subtle sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-small text-ferresa-subtle sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <p>
             © {year} {company.name}. Todos los derechos reservados.
           </p>
-          <p>Fabricación e instalación de mobiliario personalizado.</p>
+          <nav aria-label="Información legal" className="flex flex-wrap gap-x-5 gap-y-2">
+            {legalNav.map((item) => (
+              <NavLink
+                key={item.href}
+                to={item.href}
+                className={({ isActive }) =>
+                  cn(
+                    'transition-ferresa hover:text-ferresa-inverse',
+                    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ferresa-inverse',
+                    isActive ? 'text-ferresa-inverse' : 'text-ferresa-subtle',
+                  )
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
         </div>
       </Container>
     </footer>

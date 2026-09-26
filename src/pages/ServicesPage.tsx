@@ -11,21 +11,21 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Reveal } from '@/components/ui/Reveal'
 
 export function ServicesPage() {
-  usePageSeo(pageSeo.services.title, pageSeo.services.description)
+  usePageSeo(pageSeo.services)
 
   return (
     <>
       <PageHero
         eyebrow="Servicios"
-        title="Soluciones de mobiliario"
-        description="Coordinamos el diseño, fabricamos, personalizamos e instalamos mobiliario para espacios residenciales y comerciales. Gestionamos la logística cuando es necesario."
+        title="Remodelaciones, construcciones y mobiliario"
+        description="Coordinamos remodelaciones y construcciones, e integramos mobiliario a medida para espacios residenciales y comerciales. Fabricamos, personalizamos e instalamos; gestionamos la logística cuando es necesario."
       />
 
       <Section tone="light" padding="lg" className="border-b border-ferresa-line">
         <Reveal>
           <SectionHeading
             title="Cómo te acompañamos"
-            description="Del primer contacto a la instalación, con una cotización que incluye el montaje."
+            description="Del primer contacto a la entrega, con una cotización que incluye el montaje cuando el proyecto lo requiere."
             titleAs="h2"
           />
         </Reveal>

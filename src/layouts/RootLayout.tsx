@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { CookieBanner } from '@/components/layout/CookieBanner'
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { WhatsAppButton } from '@/components/layout/WhatsAppButton'
@@ -44,6 +45,7 @@ export function RootLayout() {
 
       <Footer />
       <WhatsAppButton />
+      <CookieBanner />
     </div>
   )
 }

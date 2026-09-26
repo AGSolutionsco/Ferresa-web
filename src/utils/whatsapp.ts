@@ -1,7 +1,7 @@
 import { company } from '@/data/company'
 
 const DEFAULT_MESSAGE =
-  'Hola, Ferresa. Estoy interesado en realizar un proyecto de mobiliario y quisiera recibir información y una cotización.'
+  'Hola, Ferresa. Estoy interesado en un proyecto de remodelación, construcción o mobiliario a medida y quisiera recibir información y una cotización.'
 
 /**
  * Genera un enlace wa.me compatible con iPhone, Android y desktop.

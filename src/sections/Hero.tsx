@@ -6,16 +6,8 @@ import { MediaFrame } from '@/components/ui/Media'
 import { mediaSizes } from '@/utils/media'
 import { cn } from '@/utils/cn'
 
-function splitConcept(value: string) {
-  return value
-    .split(/(?<=\.)\s+/)
-    .map((line) => line.trim())
-    .filter(Boolean)
-}
-
 function HeroContent({ className }: { className?: string }) {
   const { hero } = homeContent
-  const conceptLines = splitConcept(hero.supportingLine)
 
   return (
     <div className={cn('flex flex-col justify-center', className)}>
@@ -23,12 +15,11 @@ function HeroContent({ className }: { className?: string }) {
         <Badge tone="accent">{hero.eyebrow}</Badge>
 
         <div className="space-y-5">
-          <h1 id="hero-heading" className="text-display max-w-[16ch] text-ferresa-ink">
-            {conceptLines.map((line) => (
-              <span key={line} className="block italic">
-                {line}
-              </span>
-            ))}
+          <h1
+            id="hero-heading"
+            className="text-display max-w-[18ch] text-ferresa-ink italic"
+          >
+            {hero.title}
           </h1>
           <p className="max-w-md text-body text-ferresa-muted">{hero.description}</p>
         </div>
@@ -73,8 +64,7 @@ function HeroMedia({ className }: { className?: string }) {
 }
 
 /**
- * Hero Home — FASE 6
- * Composición editorial: concepto + fotografía protagonista (o placeholder).
+ * Hero Home — remodelaciones, construcciones y mobiliario a medida.
  */
 export function Hero() {
   return (

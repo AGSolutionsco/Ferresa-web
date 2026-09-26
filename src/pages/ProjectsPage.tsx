@@ -11,7 +11,7 @@ import { Section } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
 
 export function ProjectsPage() {
-  usePageSeo(pageSeo.projects.title, pageSeo.projects.description)
+  usePageSeo(pageSeo.projects)
   const items = getPublishedProjects()
   const { featuredProjects: content } = homeContent
   const hasProjects = items.length > 0

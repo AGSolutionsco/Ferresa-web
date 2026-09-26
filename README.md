@@ -26,18 +26,20 @@ Copia `.env.example` a `.env`.
 | Ruta | Estado |
 |------|--------|
 | `/` | Home |
-| `/proyectos` | Listado / empty state |
+| `/proyectos` | Listado con proyectos reales |
 | `/proyectos/:slug` | Detalle / 404 |
 | `/servicios` | Servicios + productos confirmados |
 | `/nosotros` | Empresa |
 | `/contacto` | Cotización → WhatsApp |
+| `/privacidad` | Política de Tratamiento de Datos (Ley 1581) |
+| `/terminos` | Términos y Condiciones |
 | `*` | 404 |
 
 ## Fases
 
-1–6 hechas · **7 — Auditoría UX/QA/CRO** hecha · 8+ pendientes (SEO avanzado, deploy)
+1–10 hechas · **11 — Legal y cumplimiento** hecha · 12+ pendientes (deploy)
 
-Docs: `docs/FASE-3.md`, `docs/FASE-4.md`, `docs/FASE-5.md`, `docs/FASE-6.md`, `docs/FASE-7.md`.
+Docs: `docs/FASE-3.md` … `docs/FASE-11.md`.
 
 ## Datos confirmados (FASE 5)
 

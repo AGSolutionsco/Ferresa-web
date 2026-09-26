@@ -16,9 +16,9 @@ export function ProjectDetailPage() {
   const project = getProjectBySlug(slug)
 
   const seo = project
-    ? pageSeo.projectDetail(project.title)
+    ? pageSeo.projectDetail(project)
     : pageSeo.projectNotFound
-  usePageSeo(seo.title, seo.description)
+  usePageSeo(seo)
 
   if (!project) {
     return <NotFoundPage variant="project" />

@@ -41,7 +41,8 @@ export interface Project {
   slug: string
   title: string
   category: ProjectCategoryId
-  city: string
+  /** Solo si la ciudad es identificable o confirmada. No inventar. */
+  city?: string
   description: string
   images: string[]
   features: string[]
@@ -148,4 +149,6 @@ export interface FaqItem {
 export interface PageSeo {
   title: string
   description: string
+  image?: string | null
+  robots?: string
 }

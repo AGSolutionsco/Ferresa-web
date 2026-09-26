@@ -1,4 +1,5 @@
 import { useState, type FormEvent, type HTMLAttributes } from 'react'
+import { Link } from 'react-router-dom'
 import { quoteProjectTypes } from '@/data/quote'
 import { company } from '@/data/company'
 import { Button } from '@/components/ui/Button'
@@ -13,6 +14,7 @@ type FormValues = {
   city: string
   projectType: string
   description: string
+  acceptedPrivacy: boolean
 }
 
 type FormErrors = Partial<Record<keyof FormValues, string>>
@@ -23,6 +25,7 @@ const initialValues: FormValues = {
   city: '',
   projectType: '',
   description: '',
+  acceptedPrivacy: false,
 }
 
 function validate(values: FormValues): FormErrors {
@@ -34,6 +37,10 @@ function validate(values: FormValues): FormErrors {
   if (!values.projectType) errors.projectType = 'Selecciona un tipo de proyecto.'
   if (!values.description.trim()) {
     errors.description = 'Cuéntanos brevemente tu proyecto.'
+  }
+  if (!values.acceptedPrivacy) {
+    errors.acceptedPrivacy =
+      'Debes aceptar la Política de Tratamiento de Datos Personales.'
   }
   return errors
 }
@@ -166,6 +173,61 @@ export function ContactForm() {
           {errors.description ? (
             <p id="description-error" className="mt-1 text-small text-red-700" role="alert">
               {errors.description}
+            </p>
+          ) : null}
+        </div>
+
+        <div>
+          <label
+            htmlFor="acceptedPrivacy"
+            className="flex cursor-pointer items-start gap-3 text-small text-ferresa-ink"
+          >
+            <input
+              id="acceptedPrivacy"
+              name="acceptedPrivacy"
+              type="checkbox"
+              required
+              checked={values.acceptedPrivacy}
+              aria-invalid={Boolean(errors.acceptedPrivacy)}
+              aria-describedby={
+                errors.acceptedPrivacy ? 'acceptedPrivacy-error' : undefined
+              }
+              className={cn(
+                'mt-0.5 size-4 shrink-0 rounded-[var(--radius-sm)] border border-ferresa-line text-ferresa-accent',
+                'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ferresa-focus',
+                errors.acceptedPrivacy && 'border-red-600',
+              )}
+              onChange={(event) =>
+                setValues((prev) => ({
+                  ...prev,
+                  acceptedPrivacy: event.target.checked,
+                }))
+              }
+            />
+            <span>
+              Acepto la{' '}
+              <Link
+                to="/privacidad"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-ferresa-ink underline underline-offset-4 decoration-ferresa-line transition-ferresa hover:decoration-ferresa-ink"
+              >
+                Política de Tratamiento de Datos Personales
+              </Link>{' '}
+              de Ferresa
+              <span className="text-ferresa-muted">
+                {' '}
+                *<span className="sr-only"> (obligatorio)</span>
+              </span>
+            </span>
+          </label>
+          {errors.acceptedPrivacy ? (
+            <p
+              id="acceptedPrivacy-error"
+              className="mt-2 text-small text-red-700"
+              role="alert"
+            >
+              {errors.acceptedPrivacy}
             </p>
           ) : null}
         </div>

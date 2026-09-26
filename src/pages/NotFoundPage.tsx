@@ -12,7 +12,7 @@ type NotFoundPageProps = {
 
 export function NotFoundPage({ variant = 'generic' }: NotFoundPageProps) {
   const seo = variant === 'project' ? pageSeo.projectNotFound : pageSeo.notFound
-  usePageSeo(seo.title, seo.description)
+  usePageSeo(seo)
 
   const title =
     variant === 'project' ? 'Proyecto no encontrado' : 'Página no encontrada'

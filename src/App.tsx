@@ -5,9 +5,11 @@ import {
   ContactPage,
   HomePage,
   NotFoundPage,
+  PrivacyPage,
   ProjectDetailPage,
   ProjectsPage,
   ServicesPage,
+  TermsPage,
 } from '@/pages'
 
 export default function App() {
@@ -21,6 +23,8 @@ export default function App() {
           <Route path="servicios" element={<ServicesPage />} />
           <Route path="nosotros" element={<AboutPage />} />
           <Route path="contacto" element={<ContactPage />} />
+          <Route path="privacidad" element={<PrivacyPage />} />
+          <Route path="terminos" element={<TermsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

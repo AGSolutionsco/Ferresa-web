@@ -39,3 +39,6 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
+
+# Fotos originales del cliente (WhatsApp). Las copias publicadas viven en public/images/.
+fotos/
