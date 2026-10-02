@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -45,8 +45,21 @@ function sitemapIntegrityPlugin(): Plugin {
   }
 }
 
+/** Copia `index.html` a `404.html` para que las rutas del SPA funcionen en GitHub Pages. */
+function spaFallbackPlugin(): Plugin {
+  return {
+    name: 'ferresa-spa-fallback',
+    apply: 'build',
+    closeBundle() {
+      const indexHtml = readFileSync(new URL('./dist/index.html', import.meta.url))
+      writeFileSync(new URL('./dist/404.html', import.meta.url), indexHtml)
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [react(), tailwindcss(), sitemapIntegrityPlugin()],
+  base: process.env.GITHUB_PAGES === 'true' ? '/Ferresa-web/' : '/',
+  plugins: [react(), tailwindcss(), sitemapIntegrityPlugin(), spaFallbackPlugin()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

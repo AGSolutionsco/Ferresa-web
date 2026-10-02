@@ -12,9 +12,11 @@ import {
   TermsPage,
 } from '@/pages'
 
+const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={routerBasename}>
       <Routes>
         <Route element={<RootLayout />}>
           <Route index element={<HomePage />} />
