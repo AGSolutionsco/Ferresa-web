@@ -1,5 +1,6 @@
 import type { ImgHTMLAttributes } from 'react'
 import { cn } from '@/utils/cn'
+import { publicAsset } from '@/utils/publicAsset'
 
 type ImageProps = ImgHTMLAttributes<HTMLImageElement> & {
   /** Si true, usa object-cover (por defecto). */
@@ -12,15 +13,19 @@ type ImageProps = ImgHTMLAttributes<HTMLImageElement> & {
  */
 export function Image({
   alt,
+  src,
   className,
   loading = 'lazy',
   decoding = 'async',
   cover = true,
   ...props
 }: ImageProps) {
+  const resolvedSrc = typeof src === 'string' ? publicAsset(src) : src
+
   return (
     <img
       alt={alt ?? ''}
+      src={resolvedSrc}
       loading={loading}
       decoding={decoding}
       className={cn(cover && 'h-full w-full object-cover object-center', className)}
